@@ -1,4 +1,11 @@
+'use client';
+
+import { usePathname } from 'next/navigation';
+
 export default function Nav() {
+  const pathname = usePathname();
+  const isProjectsPage = pathname?.includes('/projects');
+
   return (
     <div>
       <div
@@ -10,7 +17,22 @@ export default function Nav() {
           padding: "0rem",
         }}
       >
-        <h1 style={{ fontSize: "1.75rem", fontWeight: 600, margin: 0 }}>
+        <h1 
+          onClick={() => window.location.href = "/"}
+          style={{ 
+            fontSize: "1.75rem", 
+            fontWeight: 600, 
+            margin: 0,
+            cursor: "pointer",
+            transition: "opacity 0.2s ease-in-out",
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.opacity = "0.7";
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.opacity = "1";
+          }}
+        >
           Spencer Lommel
         </h1>
 
@@ -21,10 +43,10 @@ export default function Nav() {
           }}
         >
           <button
-            onClick={() => (window.location.href = "/projects")} // TODO: switch this to next.js router
+            onClick={() => (window.location.href = "/projects")}
             style={{
               padding: "0.4rem 1rem",
-              backgroundColor: "#f0eee5",
+              backgroundColor: isProjectsPage ? "#f0e1e5" : "#f0eee5",
               color: "#333",
               fontSize: "1rem",
               fontWeight: 500,
@@ -39,14 +61,14 @@ export default function Nav() {
             }}
             onMouseOut={(e) => {
               (e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                "#f0eee5";
+                isProjectsPage ? "#f0e1e5" : "#f0eee5";
             }}
           >
             Projects
           </button>
 
           <button
-            onClick={() => (window.location.href = "/projects")} // or use Next.js router
+            onClick={() => (window.location.href = "/posts")}
             style={{
               padding: "0.4rem 1rem",
               backgroundColor: "#f0eee5",

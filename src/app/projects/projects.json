@@ -1,0 +1,18 @@
+[
+  {
+    "id": "project-1",
+    "title": "Project One",
+    "shortDescription": "A short description of Project One.",
+    "date": "2024-05-01",
+    "image": "/window.svg",
+    "markdown": "project-1.md"
+  },
+  {
+    "id": "project-2",
+    "title": "Project Two",
+    "shortDescription": "A short description of Project Two.",
+    "date": "2024-04-15",
+    "image": "/assets/th.jpeg",
+    "markdown": "project-2.md"
+  }
+]

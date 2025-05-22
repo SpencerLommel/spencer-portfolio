@@ -5,50 +5,37 @@ import Nav from './nav'
 import MyFooter from './footer'
 
 export default function Home() {
-  useEffect(() => {
-    const font = document.createElement('link')
-    font.rel = 'stylesheet'
-    font.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap'
-    document.head.appendChild(font)
-  }, [])
-
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        width: '100%',
-        backgroundColor: '#fdfcf7',
-        display: 'flex',
-        justifyContent: 'center',
-        // alignItems: 'center',
-      }}
-    >
-      <div
-        style={{
-          textAlign: 'left',
-          maxWidth: '600px',
-          padding: '2rem',
-          fontFamily: '"Inter", sans-serif',
-        }}
-      >
-        <Nav></Nav>
+    <div style={{ minHeight: '100vh', width: '100%' }}>
+      <div className="content-container">
+        <Nav />
+        
+        <div style={{ marginTop: '2rem' }}>
+          <h3>
+            Hello and welcome! My name is Spencer Lommel, I mostly program in C, C++, Go, and sometimes Python when needed, so I don't
+            really do a lot of web development :P
+          </h3>
 
-        <p style={{ fontSize: '1.2rem', lineHeight: '1.6', marginBottom: '2rem', marginTop: '5rem' }}>
-          Hello and welcome! My name is Spencer Lommel, I mostly like programming in C, C++, Go, and Python when needed, so I don't really do a lot of web development :P
-        </p>
+          <p>
+            I was working on a pretty cool embedded Linux project and I
+            got a lot of questions online about it so I decided to make
+            this page. Check out the project <a href="#">here!</a>
+          </p>
 
-        <p style={{ fontSize: '1.3rem', lineHeight: '1.6', marginBottom: '2rem'}}>I was working on a pretty cool embedded Linux project and I got a lot of questions online about it so I decided to make this page. Check out the project <a href='#'>here!</a></p>
+          <p>
+            I am a CS Major at NDSU, and a Systems Programmer Intern at Marvin
+            Windows. I really like hardware reverse engineering and working with
+            microcontrollers! Check out my Github or Projects tab to see more of what I
+            like to make! :-)
+          </p>
 
-        <p style={{ fontSize: '1rem', fontWeight: 'bold', lineHeight: '1.6', marginBottom: '2rem'}}>I am a CS Major at NDSU, and a Systems Programmer Intern at Marvin Windows. I really like hardware reverse engineering and working with microcontrollers! Check out my Github or Projects tab to see more of what I like to make! :-)</p>
-
-        <div
-          style={{
-            display: 'flex',
-            gap: '0.75rem',
-            flexWrap: 'wrap',
-          }}
-        >
-          <MyFooter></MyFooter>
+          <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
+            <SoftButton href="https://github.com/SpencerLommel" text="GitHub" />
+            <SoftButton 
+              href="https://www.linkedin.com/in/spencer-lommel" 
+              text="LinkedIn" 
+            />
+          </div>
         </div>
       </div>
     </div>
