@@ -1,27 +1,28 @@
+import Script from 'next/script'
+import { ThemeProvider } from './context/ThemeContext'
+import './globals.css'
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <title>Spencer's Site</title>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <style>{`
-          html, body { 
-            margin: 0; 
-            padding: 0; 
-            height: 100%;
-            background-color: #fdfcf7;
-          }
-          .content-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-          }
-        `}</style>
+        <Script
+          id="theme-script"
+          strategy="beforeInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                const theme = localStorage.getItem('theme') || 'light';
+                document.documentElement.setAttribute('data-theme', theme);
+                document.documentElement.style.colorScheme = theme;
+              })();
+            `,
+          }}
+        />
       </head>
-      <body style={{ fontFamily: 'sans-serif', height: '100%', width: '100%' }}>
-        {children}
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

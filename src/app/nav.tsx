@@ -1,10 +1,12 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { useTheme } from './context/ThemeContext';
 
 export default function Nav() {
   const pathname = usePathname();
   const isProjectsPage = pathname?.includes('/projects');
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div>
@@ -25,6 +27,7 @@ export default function Nav() {
             margin: 0,
             cursor: "pointer",
             transition: "opacity 0.2s ease-in-out",
+            color: 'var(--text)',
           }}
           onMouseOver={(e) => {
             e.currentTarget.style.opacity = "0.7";
@@ -46,50 +49,43 @@ export default function Nav() {
             onClick={() => (window.location.href = "/projects")}
             style={{
               padding: "0.4rem 1rem",
-              backgroundColor: isProjectsPage ? "#f0e1e5" : "#f0eee5",
-              color: "#333",
+              backgroundColor: isProjectsPage ? "var(--button-hover)" : "var(--button-bg)",
+              color: "var(--text)",
               fontSize: "1rem",
               fontWeight: 500,
-              border: "0px solid #f0eee5",
+              border: "none",
               borderRadius: "6px",
               cursor: "pointer",
               transition: "background-color 0.2s ease-in-out",
             }}
             onMouseOver={(e) => {
               (e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                "#f0e1e5";
+                "var(--button-hover)";
             }}
             onMouseOut={(e) => {
               (e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                isProjectsPage ? "#f0e1e5" : "#f0eee5";
+                isProjectsPage ? "var(--button-hover)" : "var(--button-bg)";
             }}
           >
             Projects
           </button>
 
           <button
-            onClick={() => (window.location.href = "/posts")}
+            onClick={toggleTheme}
             style={{
               padding: "0.4rem 1rem",
-              backgroundColor: "#f0eee5",
-              color: "#333",
+              backgroundColor: "var(--button-bg)",
+              color: "var(--text)",
               fontSize: "1rem",
-              fontWeight: 500,
-              border: "0px solid #f0eee5",
+              border: "none",
               borderRadius: "6px",
               cursor: "pointer",
-              transition: "background-color 0.2s ease-in-out",
-            }}
-            onMouseOver={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                "#f0e1e5";
-            }}
-            onMouseOut={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor =
-                "#f0eee5";
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            Posts
+            {theme === 'light' ? '🌙' : '☀️'}
           </button>
         </div>
       </div>

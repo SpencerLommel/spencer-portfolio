@@ -29,6 +29,9 @@ export default function Home() {
             like to make! :-)
           </p>
 
+          <p>
+            while you're here check out my projects tab as well! Also test out the light/dark mode I made a custom component that supports images too!          </p>
+
           <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem' }}>
             <SoftButton href="https://github.com/SpencerLommel" text="GitHub" />
             <SoftButton 

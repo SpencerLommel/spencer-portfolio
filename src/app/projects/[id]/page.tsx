@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import projectsData from '../projects.json';
-import ReactMarkdown from 'react-markdown';
+import ThemeMarkdown from '../../components/ThemeMarkdown';
 import Nav from '../../nav';
 
 interface Props {
@@ -41,11 +41,11 @@ export default async function ProjectPage({ params }: Props) {
         <Nav />
         <article style={{ marginTop: '2rem' }}>
           <h1 style={{ fontSize: '2rem', marginBottom: '1rem' }}>{project.title}</h1>
-          <div style={{ color: '#666', marginBottom: '2rem' }}>
+          <div style={{ color: 'var(--text)', marginBottom: '2rem' }}>
             {new Date(project.date).toLocaleDateString()}
           </div>
           <div className="markdown-content">
-            <ReactMarkdown>{content}</ReactMarkdown>
+            <ThemeMarkdown content={content} />
           </div>
         </article>
       </div>

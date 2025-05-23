@@ -1,8 +1,10 @@
+'use client'
+
 import React from 'react';
 import projects from './projects.json';
 import Link from 'next/link';
-import Image from 'next/image';
 import Nav from '../nav';
+import ThemeAwareImage from '../components/ThemeAwareImage';
 
 export default function ProjectsPage() {
   return (
@@ -22,7 +24,7 @@ export default function ProjectsPage() {
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
               <div style={{
-                backgroundColor: '#fff',
+                backgroundColor: 'var(--card-bg)',
                 borderRadius: '12px',
                 overflow: 'hidden',
                 boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
@@ -31,7 +33,7 @@ export default function ProjectsPage() {
                 height: '100%',
               }}>
                 <div style={{ position: 'relative', width: '100%', height: '200px' }}>
-                  <Image
+                  <ThemeAwareImage
                     src={project.image}
                     alt={project.title}
                     fill
@@ -44,8 +46,8 @@ export default function ProjectsPage() {
                   <h2 style={{ margin: '0 0 0.5rem 0', fontSize: '1.5rem' }}>
                     {project.title}
                   </h2>
-                  <p style={{ margin: '0', color: '#666' }}>{project.shortDescription}</p>
-                  <p style={{ margin: '1rem 0 0 0', color: '#888', fontSize: '0.9rem' }}>
+                  <p style={{ margin: '0', color: 'var(--text)' }}>{project.shortDescription}</p>
+                  <p style={{ margin: '1rem 0 0 0', color: 'var(--text)', opacity: 0.7, fontSize: '0.9rem' }}>
                     {new Date(project.date).toLocaleDateString()}
                   </p>
                 </div>
