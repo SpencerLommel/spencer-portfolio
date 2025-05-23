@@ -40,6 +40,7 @@ export default function ProjectsPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     priority={project.id === 'project-1'}
                     style={{ objectFit: 'cover' }}
+                    quality={100}
                   />
                 </div>
                 <div style={{ padding: '1.5rem' }}>

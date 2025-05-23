@@ -12,11 +12,12 @@ interface ThemeAwareImageProps {
   sizes?: string
   priority?: boolean
   style?: React.CSSProperties
+  quality?: number
 }
 
 export default function ThemeAwareImage(props: ThemeAwareImageProps) {
   const { theme } = useTheme()
-  const { src, ...rest } = props
+  const { src, quality = 100, ...rest } = props
 
   const themeAwareSrc = src.includes('/assets/') 
     ? src.replace('/assets/', `/assets/${theme}/`)
@@ -25,6 +26,7 @@ export default function ThemeAwareImage(props: ThemeAwareImageProps) {
   return (
     <Image
       src={themeAwareSrc}
+      quality={quality}
       {...rest}
     />
   )

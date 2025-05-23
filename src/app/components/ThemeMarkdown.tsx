@@ -8,17 +8,27 @@ export default function ThemeMarkdown({ content }: { content: string }) {
     <ReactMarkdown
       components={{
         img: ({ node, src, alt, ...props }) => (
-          <ThemeAwareImage
-            src={src || ''}
-            alt={alt || ''}
-            width={800}
-            height={400}
-            style={{ 
-              maxWidth: '100%', 
-              height: 'auto',
-              borderRadius: '8px'
-            }}
-          />
+          <div style={{ 
+            position: 'relative', 
+            width: '100%', 
+            margin: '2rem 0',
+            display: 'flex',
+            justifyContent: 'center'
+          }}>
+            <ThemeAwareImage
+              src={src || ''}
+              alt={alt || ''}
+              width={1920}
+              height={1080}
+              quality={100}
+              priority
+              style={{ 
+                maxWidth: '100%',
+                height: 'auto',
+                borderRadius: '8px',
+              }}
+            />
+          </div>
         ),
       }}
     >
