@@ -1,16 +1,16 @@
 [
   {
-    "id": "project-1",
-    "title": "Project One",
-    "shortDescription": "A short description of Project One.",
-    "date": "2024-05-01",
-    "image": "/window.svg",
-    "markdown": "project-1.md"
+    "id": "reverse-engineering-poly-tc8-part-1",
+    "title": "Reverse Engineering Poly TC8 Part 1",
+    "shortDescription": "Diving into embedded linux, Android debugging tools, and hardware reverse engineering and glitching.",
+    "date": "03-01-2025",
+    "image": "/reverse-engineering-poly-tc8-part-1/poly-tc8-pcb-with-uart-probes.jpg",
+    "markdown": "reverse-engineering-poly-tc8-part-1.md"
   },
-  {
-    "id": "project-2",
-    "title": "Project Two",
-    "shortDescription": "A short description of Project Two.",
+    {
+    "id": "project-3",
+    "title": "Placeholder project",
+    "shortDescription": "Test JSON light/dark mode",
     "date": "2024-04-15",
     "image": "/assets/image.png",
     "markdown": "project-2.md"

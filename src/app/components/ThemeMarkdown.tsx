@@ -16,7 +16,7 @@ export default function ThemeMarkdown({ content }: { content: string }) {
             justifyContent: 'center'
           }}>
             <ThemeAwareImage
-              src={src || ''}
+              src={typeof src === 'string' ? src : ''}
               alt={alt || ''}
               width={1920}
               height={1080}

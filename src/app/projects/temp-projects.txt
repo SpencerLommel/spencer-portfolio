@@ -1,0 +1,14 @@
+// Spencer Lommel
+// May. 29th, 2025
+This is to define projects that I haven't yet added to my blog that are a WIP so I can still track them here :---)
+If you for some reason really care about my posts and would like to get an early sneak peek you can look at the unfinished
+posts that are in the posts directory 
+
+  {
+    "id": "spencer-bmp",
+    "title": "Spencer BMP",
+    "shortDescription": "BMP Image Parser written in C! I use this in a lot of my other projects as.",
+    "date": "2024-05-01",
+    "image": "/window.svg",
+    "markdown": "spencer-bmp.md"
+  },
