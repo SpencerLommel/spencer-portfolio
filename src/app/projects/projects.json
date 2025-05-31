@@ -2,17 +2,17 @@
   {
     "id": "reverse-engineering-poly-tc8-part-1",
     "title": "Reverse Engineering Poly TC8 Part 1",
-    "shortDescription": "Diving into embedded linux, Android debugging tools, and hardware reverse engineering and glitching.",
+    "shortDescription": "Diving into embedded linux, Android debugging tools, and hardware reverse engineering.",
     "date": "03-01-2025",
-    "image": "/reverse-engineering-poly-tc8-part-1/poly-tc8-pcb-with-uart-probes.jpg",
+    "image": "/reverse-engineering-poly-tc8-part-1/poly-tc8-pcb-front2.jpg",
     "markdown": "reverse-engineering-poly-tc8-part-1.md"
   },
-    {
-    "id": "project-3",
-    "title": "Placeholder project",
-    "shortDescription": "Test JSON light/dark mode",
-    "date": "2024-04-15",
-    "image": "/assets/image.png",
-    "markdown": "project-2.md"
+  {
+    "id": "reverse-engineering-poly-tc8-part-2",
+    "title": "Reverse Engineering Poly TC8 Part 2",
+    "shortDescription": "What is SELinux, How can we stop it from booting, extracting linux images, and dumping the device tree from our new image.",
+    "date": "03-20-2025",
+    "image": "/reverse-engineering-poly-tc8-part-1/poly-tc8-pcb-with-uart-probes.jpg",
+    "markdown": "reverse-engineering-poly-tc8-part-2.md"
   }
 ]

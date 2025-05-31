@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import { usePathname } from 'next/navigation';
-import { useTheme } from './context/ThemeContext';
+import { usePathname } from "next/navigation";
+import { useTheme } from "./context/ThemeContext";
 
 export default function Nav() {
   const pathname = usePathname();
-  const isProjectsPage = pathname?.includes('/projects');
+  const isProjectsPage = pathname?.includes("/projects");
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -19,15 +19,15 @@ export default function Nav() {
           padding: "0rem",
         }}
       >
-        <h1 
-          onClick={() => window.location.href = "/"}
-          style={{ 
-            fontSize: "1.75rem", 
-            fontWeight: 600, 
+        <h1
+          onClick={() => (window.location.href = "/")}
+          style={{
+            fontSize: "1.75rem",
+            fontWeight: 600,
             margin: 0,
             cursor: "pointer",
             transition: "opacity 0.2s ease-in-out",
-            color: 'var(--text)',
+            color: "var(--text)",
           }}
           onMouseOver={(e) => {
             e.currentTarget.style.opacity = "0.7";
@@ -49,7 +49,9 @@ export default function Nav() {
             onClick={() => (window.location.href = "/projects")}
             style={{
               padding: "0.4rem 1rem",
-              backgroundColor: isProjectsPage ? "var(--button-hover)" : "var(--button-bg)",
+              backgroundColor: isProjectsPage
+                ? "var(--button-hover)"
+                : "var(--button-bg)",
               color: "var(--text)",
               fontSize: "1rem",
               fontWeight: 500,
@@ -85,7 +87,7 @@ export default function Nav() {
               justifyContent: "center",
             }}
           >
-            {theme === 'light' ? '🌙' : '☀️'}
+            {theme === "light" ? "🌙" : "☀️"}
           </button>
         </div>
       </div>

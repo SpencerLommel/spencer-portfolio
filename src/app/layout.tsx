@@ -1,9 +1,13 @@
-import Script from 'next/script'
-import { ThemeProvider } from './context/ThemeContext'
-import FloatingControls from './components/FloatingControls'
-import './globals.css'
+import Script from "next/script";
+import { ThemeProvider } from "./context/ThemeContext";
+import FloatingControls from "./components/FloatingControls";
+import "./globals.css";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -28,5 +32,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }
