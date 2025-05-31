@@ -48,27 +48,39 @@ I was able find online that I was dealing with LPDDR4 ram which would come in ha
 
 # Now to try and access the device
 
-The first thing I did was connect the Micro USB port to my computer and run `watch -n 1 lsusb` and powered it on. This continuously runs the command `lsusb` every second and updates the terminal which is very handy to see if the device changes USB modes at all during the boot up process.
+The first thing I did was connect the Micro USB port to my computer and run `watch -n 1 "lsusb"` and powered it on. This continuously runs the command [lsusb](https://www.geeksforgeeks.org/lsusb-command-in-linux-with-examples/) every second and updates the terminal which is very handy to see if the device changes USB modes at all during the boot up process.
+
+### The results of checking lsusb
+
+Upon plugging the device in via Micro USB and powering it via PoE I didn't see anything useful. However when I pressed the button on the pcb (that was not accessible from outside the case) while powering I got this! 
+
+The device showed up as a "Google Inc. Nexus/Pixel Device (charging + debug)"
+
+![Poly TC8 visible on lsusb](/assets/reverse-engineering-poly-tc8-part-1/watch-lsusb-output-poly-tc8.png)
+Most of these aren't important because lsusb shows all connected usb devices. The important one is the Google Inc. one which only showed up upon plugging in the device.
+
+This confirmed for me that this was an embedded android device which gives us a lot of options for breaking into this device. (Especially because of the debug mode, this is a great sign!)
+
+# Now we know what's running on here, what next?
+
+Luckily for us Android has some awesome debugging tools that gives us easy access to this device. All we need to do is install [adb](https://developer.android.com/tools/adb) which is the Android Debug Bridge. This allows us to connect to the device in debug mode and do some cool stuff, most important for us is getting a shell on this device so we can extract the firmware and try and rip out the [device tree](https://en.wikipedia.org/wiki/Devicetree) which is a very important part of linux which tells the Kernel the hardware addresses of different components and peripherals on a system. For example this tells the Kernel what hardware addresses ram is connected to or how to receive data from a camera module.
+
+## Getting a Shell!
+
+Next we can run `adb devices` and boot the device into recovery mode by holding the onboard button. Once it loads we will see a device popup and we can run `adb shell` to connect.
+
+![Poly TC8 visible on lsusb](/assets/reverse-engineering-poly-tc8-part-1/adb-shell-poly-tc8.png)
 
 
-<!-- Talk about monitoring lsusb and what I see -->
+## Hello and goodbye shell 
+We have a root shell! You might think this is it, but less than 10 seconds after connecting we get kicked out of our shell we worked so hard for :(. An important part of most Embedded Android images is [SELinux](https://www.redhat.com/en/topics/linux/what-is-selinux), which is Security Enhanced Linux. This runs some initialization programs that slowly lock down the system as it boots blocking unneccesary features and disabling parts of the kernel that aren't needed. 
 
-<!-- Talk about holding down the on board button while doing the same thing and see what happens differently -->
-
-<!-- Talk about ADB and running "watch -n 1 adb devices" while doing the reboot thing and this allows me to connect via an ADB Shell -->
-
-
-<!-- Maybe end part 1 here to prevent run on??? I could end with mentioning the issue of the device kicking me out and have a short description of what I'll try next... -->
+The next thing we need to tackle is finding a way to interrupt this boot process to gain a persistent shell where we can really dig into the internals of this device. The difficult part is that we're working on a limited time frame and each time we get kicked out we must restart. This means we need to act fast and come up with a game plan before booting into the system.
 
 
-<!-- Talk about how I was able to get a device shell but during the bootup process it slowly gets more secure so I need to some how stop this from happening -->
+# Disabling SELinux to get a persistent shell
+Because this post is getting pretty long I'm going to break this up into a few parts.
 
-<!-- Talk about using adb shell to run the "dmesg" command and pipe it to a log file on my computer that I could analyze without worrying about the device crashing -->
+In part 2 I'll be going over seeing what linux services are running and how we can quickly take some logs to come up with an attack plan to kill SELinux so we can have some more time in our shell. 
 
-<!-- Talk about looking through the dmesg log and coming up with a script to kill running services that I could run on startup to interrupt the boot process -->
-
-<!-- Talk about getting a working script and finally being able to look into the device -->
-
-<!-- Talk about attempts to compress and extract the files and running into issues of limited space so needing to make a program to one by one compress them, extract them with adb shell, delete them, and do that for all files -->
-
-<!-- Talk about extracting the device tree, explain what this is used for, and wrap up this post because it's getting long and I'll talk about it more in a part 2 -->
+After this I'll go over extracting the firmware so we can do a more in-depth look at what's going on in our system and how we can extract a device tree which is an extremely important bit of information to have to create a new Linux image with this device using a tool like [Yocto](https://www.yoctoproject.org/)

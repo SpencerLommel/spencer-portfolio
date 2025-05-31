@@ -1,0 +1,22 @@
+
+<!-- Talk about monitoring lsusb and what I see -->
+
+<!-- Talk about holding down the on board button while doing the same thing and see what happens differently -->
+
+<!-- Talk about ADB and running "watch -n 1 adb devices" while doing the reboot thing and this allows me to connect via an ADB Shell -->
+
+
+<!-- Maybe end part 1 here to prevent run on??? I could end with mentioning the issue of the device kicking me out and have a short description of what I'll try next... -->
+
+
+<!-- Talk about how I was able to get a device shell but during the bootup process it slowly gets more secure so I need to some how stop this from happening -->
+
+<!-- Talk about using adb shell to run the "dmesg" command and pipe it to a log file on my computer that I could analyze without worrying about the device crashing -->
+
+<!-- Talk about looking through the dmesg log and coming up with a script to kill running services that I could run on startup to interrupt the boot process -->
+
+<!-- Talk about getting a working script and finally being able to look into the device -->
+
+<!-- Talk about attempts to compress and extract the files and running into issues of limited space so needing to make a program to one by one compress them, extract them with adb shell, delete them, and do that for all files -->
+
+<!-- Talk about extracting the device tree, explain what this is used for, and wrap up this post because it's getting long and I'll talk about it more in a part 2 -->
