@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import type { Components } from "react-markdown";
 import type { ComponentPropsWithoutRef } from "react";
@@ -10,6 +11,10 @@ import {
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { useTheme } from "../context/ThemeContext";
 import ThemeAwareImage from "./ThemeAwareImage";
+import LogViewer from "./LogViewer";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import rehypeNormalizeComponents from '../../lib/rehypeNormalizeComponents';
 
 import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
 import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";
@@ -23,10 +28,31 @@ SyntaxHighlighter.registerLanguage("javascript", javascript);
 SyntaxHighlighter.registerLanguage("css", css);
 SyntaxHighlighter.registerLanguage("json", json);
 
+function LogContentLoader({ src }: { src: string }) {
+  const [logContent, setLogContent] = useState<string>("");
+
+  useEffect(() => {
+    const fetchLog = async () => {
+      try {
+        const response = await fetch(src);
+        const content = await response.text();
+        setLogContent(content);
+      } catch (error) {
+        console.error("Error loading log file:", error);
+        setLogContent("Error loading log file");
+      }
+    };
+
+    fetchLog();
+  }, [src]);
+
+  return logContent ? <LogViewer content={logContent} /> : null;
+}
+
 export default function ThemeMarkdown({ content }: { content: string }) {
   const { theme } = useTheme();
 
-  const components: Components = {
+  const components: Components & { [key: string]: any } = {
     img: ({ src, alt }) => (
       <div
         style={{
@@ -97,7 +123,18 @@ export default function ThemeMarkdown({ content }: { content: string }) {
         </code>
       );
     },
+    Log: ({ src }: { src: string }) => {
+      return <LogContentLoader src={src} />;
+    },
   };
 
-  return <ReactMarkdown components={components}>{content}</ReactMarkdown>;
+  return (
+    <ReactMarkdown
+      components={components}
+      remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw, rehypeNormalizeComponents]}
+    >
+      {content}
+    </ReactMarkdown>
+  );
 }

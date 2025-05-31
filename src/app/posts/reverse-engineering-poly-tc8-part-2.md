@@ -18,3 +18,10 @@ As this command runs we see our device connected on the left and our log output 
 
 Here we can see the logs successfully saved to our computer!
 ![dmesg command output](/assets/reverse-engineering-poly-tc8-part-2/dmesg-command-output.png)
+
+
+Here's all of the logs I extracted from the device. If you scroll all the way to the end you'll see some mentioning `hal`. This refers to the Hardware Abstraction Layer and we notice that it's killing some processes. This tells us that our device is transitioning from Fastboot mode to Userland mode which is more locked down to only have the features our users could need. 
+<Log src="/reverse-engineering-poly-tc8-part-2/dmesg-log.txt" />
+
+
+(forgive the odd looking log viewer box. I'm also making my own markdown parser for this blog :p)
