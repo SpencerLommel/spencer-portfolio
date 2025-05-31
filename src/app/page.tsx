@@ -52,21 +52,26 @@ function SoftButton({ href, text }: { href: string; text: string }) {
       target="_blank"
       rel="noopener noreferrer"
       style={{
-        padding: '0.4rem 1rem',
-        backgroundColor: '#f6f1c1',
-        color: '#333',
+        padding: '0.75rem 1.5rem',
+        backgroundColor: 'var(--button-bg)',
+        color: 'var(--text)',
         textDecoration: 'none',
-        borderRadius: '6px',
+        borderRadius: '8px',
         fontSize: '0.95rem',
         fontWeight: 500,
-        border: '1px solid #e5dfac',
+        border: '1px solid var(--button-border)',
         transition: 'all 0.2s ease-in-out',
+        display: 'inline-flex',
+        alignItems: 'center',
+        gap: '0.5rem',
       }}
       onMouseOver={(e) => {
-        e.currentTarget.style.backgroundColor = '#f0e9a0'
+        e.currentTarget.style.backgroundColor = 'var(--button-hover)';
+        e.currentTarget.style.transform = 'translateY(-1px)';
       }}
       onMouseOut={(e) => {
-        e.currentTarget.style.backgroundColor = '#f6f1c1'
+        e.currentTarget.style.backgroundColor = 'var(--button-bg)';
+        e.currentTarget.style.transform = 'translateY(0)';
       }}
     >
       {text}

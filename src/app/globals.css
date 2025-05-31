@@ -1,17 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
 :root[data-theme='light'] {
   --background: #fdfcf7;
   --text: #333;
   --card-bg: #fff;
-  --button-bg: #f0eee5;
-  --button-hover: #f0e1e5;
+  --button-bg: #f8f9fa;
+  --button-hover: #e9ecef;
+  --button-border: #dee2e6;
+  --code-bg: #f8f9fa;
+  --code-text: #2d3748;
 }
 
 :root[data-theme='dark'] {
   --background: #1a1a1a;
   --text: #e0e0e0;
   --card-bg: #2d2d2d;
-  --button-bg: #3d3d3d;
-  --button-hover: #4d4d4d;
+  --button-bg: #2d2d2d;
+  --button-hover: #3d3d3d;
+  --button-border: #404040;
+  --code-bg: #2d2d2d;
+  --code-text: #e0e0e0;
 }
 
 body {
@@ -19,11 +27,66 @@ body {
   padding: 0;
   background-color: var(--background);
   color: var(--text);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
 }
 
 .content-container {
   max-width: 800px;
   margin: 0 auto;
   padding: 2rem;
+}
+
+/* Code block styles */
+code {
+  font-family: 'Fira Code', monospace;
+  background: var(--code-bg);
+  color: var(--code-text);
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre {
+  margin: 1.5em 0;
+  position: relative;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  padding: 0.5rem;
+  background: var(--button-bg);
+  border: 1px solid var(--button-border);
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 10;
+}
+
+pre:hover .copy-button {
+  opacity: 1;
+}
+
+.copy-button:hover {
+  transform: scale(1.05);
+  background: var(--button-hover);
+}
+
+.copy-button:active {
+  transform: scale(0.95);
+}
+
+/* Add to existing styles */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
