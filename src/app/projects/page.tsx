@@ -72,7 +72,11 @@ export default function ProjectsPage() {
                       fontSize: "0.9rem",
                     }}
                   >
-                    {new Date(project.date).toLocaleDateString()}
+                    {new Date(project.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
                   </p>
                 </div>
               </div>

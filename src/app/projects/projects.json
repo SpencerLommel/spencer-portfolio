@@ -12,7 +12,7 @@
     "title": "Reverse Engineering Poly TC8 Part 2",
     "shortDescription": "What is SELinux, How can we stop it from booting, extracting linux images, and dumping the device tree from our new image.",
     "date": "03-20-2025",
-    "image": "/reverse-engineering-poly-tc8-part-1/poly-tc8-pcb-with-uart-probes.jpg",
+    "image": "/reverse-engineering-poly-tc8-part-2/poly-tc8-pcb-with-uart-probes.jpg",
     "markdown": "reverse-engineering-poly-tc8-part-2.md"
   }
 ]

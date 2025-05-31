@@ -44,7 +44,11 @@ export default async function ProjectPage({ params }: Props) {
             {project.title}
           </h1>
           <div style={{ color: "var(--text)", marginBottom: "2rem" }}>
-            {new Date(project.date).toLocaleDateString()}
+            {new Date(project.date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })}
           </div>
           <div className="markdown-content">
             <ThemeMarkdown content={content} />

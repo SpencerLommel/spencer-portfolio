@@ -1,0 +1,676 @@
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 5.10.72 (ecommander@engint15.polycom.com) (Android (7284624, based on r416183b) clang version 12.0.5 (https://android.googlesource.com/toolchain/llvm-project c935d99d7cf2016289302412d708641d52d2f7ee), LLD 12.0.5 (/buildbot/src/android/llvm-toolchain/out/llvm-project/lld c935d99d7cf2016289302412d708641d52d2f7ee)) #1 SMP PREEMPT Mon Apr 1 17:26:28 CDT 2024
+[    0.000000] Machine model: POLY LCC PROTO
+[    0.000000] Stack Depot is disabled
+[    0.000000] earlycon: ec_imx6q0 at MMIO 0x0000000030890000 (options '115200')
+[    0.000000] printk: bootconsole [ec_imx6q0] enabled
+[    0.000000] efi: UEFI not found.
+[    0.000000] kvm [0]: Reserved 14 MiB at 0xbec00000
+[    0.000000] Zone ranges:
+[    0.000000] DMA32    [mem 0x0000000040000000-0x00000000bfffffff]
+[    0.000000] Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000] node   0: [mem 0x0000000040000000-0x00000000bdeeffff]
+[    0.000000] node   0: [mem 0x00000000bdef0000-0x00000000bdefffff]
+[    0.000000] node   0: [mem 0x00000000bdf00000-0x00000000bfffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000040000000-0x00000000bfffffff]
+[    0.000000] On node 0 totalpages: 524288
+[    0.000000] DMA32 zone: 8192 pages used for memmap
+[    0.000000] DMA32 zone: 0 pages reserved
+[    0.000000] DMA32 zone: 524288 pages, LIFO batch:63
+[    0.000000] cma: Reserved 800 MiB at 0x0000000086000000
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.2
+[    0.000000] percpu: Embedded 33 pages/cpu s96088 r8192 d30888 u135168
+[    0.000000] pcpu-alloc: s96088 r8192 d30888 u135168 alloc=33*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: SYS_ID_AA64MMFR1_EL1[11:8]: already set to 0
+[    0.000000] CPU features: detected: ARM erratum 845719
+[    0.000000] CPU features: detected: GIC system register CPU interface
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 516096
+[    0.000000] Kernel command line: stack_depot_disable=on kasan.stacktrace=off kvm-arm.mode=protected cgroup_disable=pressure cgroup.memory=nokmem console=ttymxc1,115200 earlycon=ec_imx6q,0x30890000,115200 init=/init androidboot.console=ttymxc1 androidboot.hardware=nxp firmware_class.path=/vendor/firmware loop.max_part=7 transparent_hugepage=never androidboot.lcd_density=240 androidboot.primary_display=imx-drm androidboot.wificountrycode=CN moal.mod_para=wifi_mod_para_sd8987.conf androidboot.wifivendor=bcm cma=800M@0x400M-0xb80M androidboot.vendor.sysrq=1 androidboot.selinux=permissive buildvariant=userdebug androidboot.serialno=1d2621aac655a072 androidboot.btmacaddr=1d:26:21:aa:c6:55 androidboot.rstkey_result=FAIL androidboot.soc_type=imx8mm androidboot.boot_devices=soc@0/30800000.bus/30b60000.mmc androidboot.boottime=1BLL:0,1BLE:5160,KL:0,KD:0,AVB:1330,ODT:0,SW:0 androidboot.bootreason=cold,powerkey androidboot.dtbo_idx=0 androidboot.keystore=software androidboot.verifie
+[    0.000000] cgroup: Disabling pressure control group feature
+[    0.000000] Dentry cache hash table entries: 262144 (order: 9, 2097152 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 131072 (order: 8, 1048576 bytes, linear)
+[    0.000000] mem auto-init: stack:all(zero), heap alloc:on, heap free:off
+[    0.000000] Memory: 1181068K/2097152K available (17472K kernel code, 2166K rwdata, 10468K rodata, 1024K init, 996K bss, 96884K reserved, 819200K cma-reserved)
+[    0.000000] random: get_random_u64 called from kmem_cache_open+0x2c/0x2f4 with crng_init=0
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Preemptible hierarchical RCU implementation.
+[    0.000000] rcu: \x09RCU event tracing is enabled.
+[    0.000000] rcu: \x09RCU restricting CPUs from NR_CPUS=32 to nr_cpu_ids=4.
+[    0.000000] \x09Trampoline variant of Tasks RCU enabled.
+[    0.000000] \x09Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=4
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
+[    0.000000] GICv3: 128 SPIs implemented
+[    0.000000] GICv3: 0 Extended SPIs implemented
+[    0.000000] GICv3: Distributor has no Range Selector support
+[    0.000000] GICv3: 16 PPIs implemented
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x0000000038880000
+[    0.000000] ITS: No ITS available, not enabling LPIs
+[    0.000000] rcu: \x09Offload RCU callbacks from CPUs: (none).
+[    0.000000] kfence: initialized - using 524288 bytes for 63 objects at 0x(____ptrval____)-0x(____ptrval____)
+[    0.000000] arch_timer: cp15 timer(s) running at 8.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x1d854df40, max_idle_ns: 440795202120 ns
+[    0.000003] sched_clock: 56 bits at 8MHz, resolution 125ns, wraps every 2199023255500ns
+[    0.009542] Calibrating delay loop (skipped), value calculated using timer frequency.. 16.00 BogoMIPS (lpj=32000)
+[    0.019782] pid_max: default: 32768 minimum: 301
+[    0.025257] LSM: Security Framework initializing
+[    0.030501] SELinux:  Initializing.
+[    0.034800] Mount-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.042798] Mountpoint-cache hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.053193] rcu: Hierarchical SRCU implementation.
+[    0.057641] EFI services will not be available.
+[    0.062365] smp: Bringing up secondary CPUs ...
+[    0.067950] Detected VIPT I-cache on CPU1
+[    0.067978] GICv3: CPU1: found redistributor 1 region 0:0x00000000388a0000
+[    0.068023] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.068575] Detected VIPT I-cache on CPU2
+[    0.068593] GICv3: CPU2: found redistributor 2 region 0:0x00000000388c0000
+[    0.068620] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    0.069175] Detected VIPT I-cache on CPU3
+[    0.069192] GICv3: CPU3: found redistributor 3 region 0:0x00000000388e0000
+[    0.069221] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    0.069295] smp: Brought up 1 node, 4 CPUs
+[    0.131008] SMP: Total of 4 processors activated.
+[    0.136420] CPU features: detected: 32-bit EL0 Support
+[    0.142302] CPU features: detected: CRC32 instructions
+[    0.148151] CPU features: detected: 32-bit EL1 Support
+[    0.154020] CPU features: detected: Protected KVM
+[    0.159498] CPU features: emulated: Privileged Access Never (PAN) using TTBR0_EL1 switching
+[    0.181376] CPU: All CPU(s) started at EL2
+[    0.183344] alternatives: patching kernel code
+[    0.198637] Registered cp15_barrier emulation handler
+[    0.201576] Registered setend emulation handler
+[    0.206812] KASLR disabled due to lack of seed
+[    0.212124] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+[    0.222486] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.263684] pinctrl core: initialized pinctrl subsystem
+[    0.267947] NET: Registered protocol family 16
+[    0.274668] DMA: preallocated 256 KiB GFP_KERNEL pool for atomic allocations
+[    0.279924] DMA: preallocated 256 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.288523] audit: initializing netlink subsys (disabled)
+[    0.294724] audit: type=2000 audit(0.208:1): state=initialized audit_enabled=0 res=1
+[    0.295257] thermal_sys: Registered thermal governor 'step_wise'
+[    0.303018] thermal_sys: Registered thermal governor 'user_space'
+[    0.309749] thermal_sys: Registered thermal governor 'power_allocator'
+[    0.316810] cpuidle: using governor menu
+[    0.328926] hw-breakpoint: found 6 breakpoint and 4 watchpoint registers.
+[    0.336088] ASID allocator initialised with 65536 entries
+[    0.342270] Serial: AMBA PL011 UART driver
+[    0.346997] imx mu driver is registered.
+[    0.351592] imx rpmsg driver is registered.
+[    0.357287] printk: console [ramoops-1] enabled
+[    0.361729] pstore: Registered ramoops as persistent store backend
+[    0.368642] ramoops: using 0x100000@0xbdf00000, ecc: 0
+[    0.385283] imx8mm-pinctrl 30330000.pinctrl: Invalid fsl,pins or pins property in node /soc@0/bus@30000000/pinctrl@30330000/ir-recv
+[    0.395064] imx8mm-pinctrl 30330000.pinctrl: Invalid fsl,pins or pins property in node /soc@0/bus@30000000/pinctrl@30330000/csi_pwn_grp
+[    0.407988] imx8mm-pinctrl 30330000.pinctrl: Invalid fsl,pins or pins property in node /soc@0/bus@30000000/pinctrl@30330000/csi_rst_grp
+[    0.420937] imx8mm-pinctrl 30330000.pinctrl: Invalid fsl,pins or pins property in node /soc@0/bus@30000000/pinctrl@30330000/ecspi2cs
+[    0.433707] imx8mm-pinctrl 30330000.pinctrl: initialized IMX pinctrl driver
+[    0.469810] iommu: Default domain type: Translated 
+[    0.473163] SCSI subsystem initialized
+[    0.477202] usbcore: registered new interface driver usbfs
+[    0.483271] usbcore: registered new interface driver hub
+[    0.489297] usbcore: registered new device driver usb
+[    0.495531] mc: Linux media interface: v0.10
+[    0.500057] videodev: Linux video capture interface: v2.00
+[    0.506458] EDAC MC: Ver: 3.0.0
+[    0.511077] Advanced Linux Sound Architecture Driver Initialized.
+[    0.517438] Bluetooth: Core ver 2.22
+[    0.521242] NET: Registered protocol family 31
+[    0.526371] Bluetooth: HCI device and connection manager initialized
+[    0.533465] Bluetooth: HCI socket layer initialized
+[    0.539060] Bluetooth: L2CAP socket layer initialized
+[    0.544843] Bluetooth: SCO socket layer initialized
+[    0.550614] nfc: nfc_init: NFC Core ver 0.1
+[    0.555379] NET: Registered protocol family 39
+[    0.561021] clocksource: Switched to clocksource arch_sys_counter
+[    0.660336] VFS: Disk quotas dquot_6.6.0
+[    0.662179] VFS: Dquot-cache hash table entries: 512 (order 0, 4096 bytes)
+[    0.670468] NET: Registered protocol family 2
+[    0.674919] IP idents hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.684039] tcp_listen_portaddr_hash hash table entries: 1024 (order: 2, 16384 bytes, linear)
+[    0.692321] TCP established hash table entries: 16384 (order: 5, 131072 bytes, linear)
+[    0.701033] TCP bind hash table entries: 16384 (order: 6, 262144 bytes, linear)
+[    0.709197] TCP: Hash tables configured (established 16384 bind 16384)
+[    0.716324] UDP hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    0.723684] UDP-Lite hash table entries: 1024 (order: 3, 32768 bytes, linear)
+[    0.731668] NET: Registered protocol family 1
+[    0.737085] NET: Registered protocol family 44
+[    0.741782] PCI: CLS 0 bytes, default 64
+[    0.746626] Trying to unpack rootfs image as initramfs...
+[    1.077181] Freeing initrd memory: 7848K
+[    1.079962] hw perfevents: enabled with armv8_pmuv3 PMU driver, 7 counters available
+[    1.088112] kvm [1]: IPA Size Limit: 40 bits
+[    1.104436] kvm [1]: GICv3: no GICV resource entry
+[    1.107095] kvm [1]: disabling GICv2 emulation
+[    1.112272] kvm [1]: GIC system register CPU interface enabled
+[    1.118925] kvm [1]: vgic interrupt IRQ9
+[    1.124412] kvm [1]: Protected nVHE mode initialized successfully
+[    1.137241] Initialise system trusted keyrings
+[    1.139744] workingset: timestamp_bits=46 max_order=19 bucket_order=0
+[    1.156004] fuse: init (API version 7.32)
+[    1.195091] Key type asymmetric registered
+[    1.197064] Asymmetric key parser 'x509' registered
+[    1.202718] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 240)
+[    1.210816] io scheduler mq-deadline registered
+[    1.216050] io scheduler kyber registered
+[    1.220950] io scheduler bfq registered
+[    1.228540] pwm-backlight 32e10000.mipi_dsi.0: supply power not found, using dummy regulator
+[    1.241997] mxs-dma 33000000.dma-controller: initialized
+[    1.245661] SoC: i.MX8MM revision 1.0
+[    1.250037] Bus freq driver module loaded
+[    1.257005] Serial: 8250/16550 driver, 4 ports, IRQ sharing disabled
+[    1.263333] 30890000.serial: ttymxc1 at MMIO 0x30890000 (irq = 47, base_baud = 1500000) is a IMX
+[    1.271033] printk: console [ttymxc1] enabled
+[    1.280995] printk: bootconsole [ec_imx6q0] disabled
+[    1.293266] imx-lcdif 32e00000.lcdif: lcdif: failed to find trusty node. Use normal mode.
+[    1.307701] imx-drm 32c00000.bus:display-subsystem: bound imx-lcdif-crtc.0 (ops lcdif_crtc_ops)
+[    1.317195] imx_sec_dsim_drv 32e10000.mipi_dsi: version number is 0x1060200
+[    1.325197] imx_sec_dsim_drv 32e10000.mipi_dsi: Failed to attach bridge: 32e10000.mipi_dsi
+[    1.334241] imx_sec_dsim_drv 32e10000.mipi_dsi: failed to bind sec dsim bridge: -517
+[    1.349694] brd: module loaded
+[    1.363961] loop: module loaded
+[    1.368666] nd_pmem namespace0.0: unable to guarantee persistence of writes
+[    1.371475] wireguard: WireGuard 1.0.0 loaded. See www.wireguard.com for information.
+[    1.385068] wireguard: Copyright (C) 2015-2019 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
+[    1.396510] libphy: Fixed MDIO Bus: probed
+[    1.401333] tun: Universal TUN/TAP device driver, 1.6
+[    1.407147] CAN device driver interface
+[    1.411691] PPP generic driver version 2.4.2
+[    1.416770] PPP BSD Compression module registered
+[    1.422184] PPP Deflate Compression module registered
+[    1.427979] PPP MPPE Compression module registered
+[    1.433515] NET: Registered protocol family 24
+[    1.438673] PPTP driver version 0.8.5
+[    1.443287] usbcore: registered new interface driver rtl8150
+[    1.449699] usbcore: registered new interface driver r8152
+[    1.455923] usbcore: registered new interface driver cdc_ether
+[    1.462496] usbcore: registered new interface driver cdc_eem
+[    1.468903] usbcore: registered new interface driver cdc_ncm
+[    1.475301] usbcore: registered new interface driver aqc111
+[    1.482543] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.489783] ehci-pci: EHCI PCI platform driver
+[    1.494965] ehci-platform: EHCI generic platform driver
+[    1.501516] usbcore: registered new interface driver cdc_acm
+[    1.507883] cdc_acm: USB Abstract Control Model driver for USB modems and ISDN adapters
+[    1.516787] usbcore: registered new interface driver uas
+[    1.522856] usbcore: registered new interface driver usb-storage
+[    1.531560] dummy_hcd dummy_hcd.0: USB Host+Gadget Emulator, driver 02 May 2005
+[    1.539600] dummy_hcd dummy_hcd.0: Dummy host controller
+[    1.545626] dummy_hcd dummy_hcd.0: new USB bus registered, assigned bus number 1
+[    1.553909] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.10
+[    1.562884] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    1.570831] usb usb1: Product: Dummy host controller
+[    1.576502] usb usb1: Manufacturer: Linux 5.10.72 dummy_hcd
+[    1.582781] usb usb1: SerialNumber: dummy_hcd.0
+[    1.588318] hub 1-0:1.0: USB hub found
+[    1.592804] hub 1-0:1.0: 1 port detected
+[    1.598471] snvs_pwrkey 30370000.snvs:snvs-powerkey: snvs pwkey: failed to find trusty node. Use normal mode.
+[    1.609390] input: 30370000.snvs:snvs-powerkey as /devices/platform/soc@0/30000000.bus/30370000.snvs/30370000.snvs:snvs-powerkey/input/input0
+[    1.623183] usbcore: registered new interface driver xpad
+[    1.629323] Gt9xx driver installing..
+[    1.634045] usbcore: registered new interface driver uvcvideo
+[    1.640499] USB Video Class driver (1.1.1)
+[    1.645300] gspca_main: v2.14.0 registered
+[    1.650209] __power_supply_register: Expected proper parent device for 'battery'
+[    1.658633] __power_supply_register: Expected proper parent device for 'usb'
+[    1.668017] device-mapper: uevent: version 1.0.3
+[    1.673691] device-mapper: ioctl: 4.44.0-ioctl (2021-02-01) initialised: dm-devel@redhat.com
+[    1.683251] Bluetooth: HCI UART driver ver 2.3
+[    1.688408] Bluetooth: HCI UART protocol H4 registered
+[    1.694260] Bluetooth: HCI UART protocol BCSP registered
+[    1.700310] Bluetooth: HCI UART protocol LL registered
+[    1.706157] Bluetooth: HCI UART protocol ATH3K registered
+[    1.712281] Bluetooth: HCI UART protocol Three-wire (H5) registered
+[    1.719413] Bluetooth: HCI UART protocol Broadcom registered
+[    1.725798] Bluetooth: HCI UART protocol QCA registered
+[    1.733032] sdhci: Secure Digital Host Controller Interface driver
+[    1.739919] sdhci: Copyright(c) Pierre Ossman
+[    1.744982] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.752149] SMCCC: SOC_ID: ARCH_SOC_ID not implemented, skipping ....
+[    1.759389] hid: raw HID events driver (C) Jiri Kosina
+[    1.766527] usbcore: registered new interface driver usbhid
+[    1.772809] usbhid: USB HID core driver
+[    1.778362] Invalid reserved mem info
+[    1.782989] ashmem: initialized
+[    1.785125] mmc2: SDHCI controller on 30b60000.mmc [30b60000.mmc] using ADMA
+[    1.788551] gnss: GNSS driver registered with major 511
+[    1.801465] usbcore: registered new interface driver snd-usb-audio
+[    1.808966] GACT probability NOT on
+[    1.813184] Mirror/redirect action on
+[    1.817596] netem: version 1.3
+[    1.821447] u32 classifier
+[    1.824852] input device check on
+[    1.829222] Actions configured
+[    1.834402] xt_time: kernel timezone is -0000
+[    1.839639] ipip: IPv4 and MPLS over IPv4 tunneling driver
+[    1.846271] gre: GRE over IPv4 demultiplexor driver
+[    1.851861] ip_gre: GRE over IPv4 tunneling driver
+[    1.858337] IPv4 over IPsec tunneling driver
+[    1.864029] Initializing XFRM netlink socket
+[    1.869048] IPsec XFRM device driver
+[    1.873893] NET: Registered protocol family 10
+[    1.881282] Segment Routing with IPv6
+[    1.885845] mip6: Mobile IPv6
+[    1.890348] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    1.892452] mmc2: new HS400 Enhanced strobe MMC card at address 0001
+[    1.897850] ip6_gre: GRE over IPv6 tunneling driver
+[    1.905382] mmcblk2: mmc2:0001 AJTD4R 14.6 GiB 
+[    1.910177] NET: Registered protocol family 17
+[    1.915152] mmcblk2boot0: mmc2:0001 AJTD4R partition 1 4.00 MiB
+[    1.920074] NET: Registered protocol family 15
+[    1.926959] mmcblk2boot1: mmc2:0001 AJTD4R partition 2 4.00 MiB
+[    1.931974] can: controller area network core
+[    1.938526] mmcblk2rpmb: mmc2:0001 AJTD4R partition 3 4.00 MiB, chardev (237:0)
+[    1.943641] NET: Registered protocol family 29
+[    1.956703] can: raw protocol
+[    1.956707] Alternate GPT is invalid, using primary GPT.
+[    1.956763] mmcblk2: p1 p2 p3 p4 p5 p6 p7 p8 p9 p10 p11 p12 p13 p14 p15 p16 p17 p18
+[    1.960398] can: broadcast manager protocol
+[    1.979815] can: netlink gateway - max_hops=1
+[    1.985805] Bluetooth: RFCOMM TTY layer initialized
+[    1.991431] Bluetooth: RFCOMM socket layer initialized
+[    1.997327] Bluetooth: RFCOMM ver 1.11
+[    2.001811] Bluetooth: HIDP (Human Interface Emulation) ver 1.2
+[    2.008446] Bluetooth: HIDP socket layer initialized
+[    2.014146] l2tp_core: L2TP core driver, V2.0
+[    2.019215] l2tp_ppp: PPPoL2TP kernel driver, V2.0
+[    2.024713] 8021q: 802.1Q VLAN Support v1.8
+[    2.029652] tipc: Activated (version 2.0.0)
+[    2.034922] NET: Registered protocol family 30
+[    2.040461] tipc: Started in single node mode
+[    2.052053] NET: Registered protocol family 36
+[    2.057631] NET: Registered protocol family 40
+[    2.063531] registered taskstats version 1
+[    2.068367] Loading compiled-in X.509 certificates
+[    2.073902] page_owner is disabled
+[    2.078168] Key type ._fscrypt registered
+[    2.082886] Key type .fscrypt registered
+[    2.087516] Key type fscrypt-provisioning registered
+[    2.093483] pstore: Using crash dump compression: deflate
+[    2.125576] usb_phy_generic usbphynop1: supply vcc not found, using dummy regulator
+[    2.134267] usb_phy_generic usbphynop2: supply vcc not found, using dummy regulator
+[    2.143703] i2c i2c-0: IMX I2C adapter registered
+[    2.150264] goodix-ts 1-0014: GTP Driver Version: V2.8.1<2022/07/25>
+[    2.157351] goodix-ts 1-0014: GTP I2C Address: 0x14
+[    2.162961] goodix-ts 1-0014: touch input parameters is [id x y w p]<11 800 1280 512 512>
+[    2.171846] goodix-ts 1-0014: int-sync enabled
+[    2.177001] goodix-ts 1-0014: driver-send-cfg enabled
+[    2.182764] goodix-ts 1-0014: slide-wakeup enabled
+[    2.188268] goodix-ts 1-0014: esd-protect enabled
+[    2.193680] goodix-ts 1-0014: resume-in-workqueue enabled
+[    2.199824] goodix-ts 1-0014: Regulator get failed vdd ret=0
+[    2.206194] goodix-ts 1-0014: Regulator get failed vcc_i2c ret=0
+[    2.212910] goodix-ts 1-0014: Failed get pinctrl state:output_high
+[    2.219817] goodix-ts 1-0014: Success request irq-gpio
+[    2.225678] goodix-ts 1-0014: Success request rst-gpio
+[    2.231522] goodix-ts 1-0014: Guitar reset
+[    2.338246] goodix-ts 1-0014: I2c write failed,dev:14,reg:8041,size:1
+[    2.345403] goodix-ts 1-0014: Failed init ext watchdog
+[    2.351460] I2c read retry[1]:0x8047
+[    2.358376] I2c read retry[2]:0x8047
+[    2.364993] I2c read retry[3]:0x8047
+[    2.371596] I2c read retry[4]:0x8047
+[    2.378197] I2c read retry[5]:0x8047
+[    2.384599] goodix-ts 1-0014: I2c read failed,dev:14,reg:8047,size:1
+[    2.391664] goodix-ts 1-0014: GTP i2c test failed time 1
+[    2.409281] I2c read retry[1]:0x8047
+[    2.415887] I2c read retry[2]:0x8047
+[    2.422491] I2c read retry[3]:0x8047
+[    2.429094] I2c read retry[4]:0x8047
+[    2.435693] I2c read retry[5]:0x8047
+[    2.442094] goodix-ts 1-0014: I2c read failed,dev:14,reg:8047,size:1
+[    2.449161] goodix-ts 1-0014: GTP i2c test failed time 2
+[    2.466780] I2c read retry[1]:0x8047
+[    2.473382] I2c read retry[2]:0x8047
+[    2.479982] I2c read retry[3]:0x8047
+[    2.486586] I2c read retry[4]:0x8047
+[    2.493188] I2c read retry[5]:0x8047
+[    2.499587] goodix-ts 1-0014: I2c read failed,dev:14,reg:8047,size:1
+[    2.506654] goodix-ts 1-0014: GTP i2c test failed time 3
+[    2.524075] goodix-ts 1-0014: Failed communicate with IC use I2C
+[    2.530855] goodix-ts: probe of 1-0014 failed with error -11
+[    2.537247] i2c i2c-1: IMX I2C adapter registered
+[    2.543799] ------------------- tas571x_i2c_probe begin -------------------
+[    2.543825] tas5751 2-002b: supply AVDD not found, using dummy regulator
+[    2.559093] tas5751 2-002b: supply DVDD not found, using dummy regulator
+[    2.566543] tas5751 2-002b: supply PVDD_AB not found, using dummy regulator
+[    2.574282] tas5751 2-002b: supply PVDD_CD not found, using dummy regulator
+[    2.582541] ------------------- tas571x_i2c_probe reset_gpio -------------------
+[    2.764045] ------------------- tas571x_i2c_probe initial code -------------------
+[    2.783749] ------------------- tas571x_i2c_probe initial code set mono -------------------
+[    2.796639] ------------------- tas571x_i2c_probe initial code end -------------------
+[    2.806912] i2c i2c-2: IMX I2C adapter registered
+[    2.821761] pwm-backlight 32e10000.mipi_dsi.0: supply power not found, using dummy regulator
+[    2.836217] imx_usb 32e40000.usb: gpio-otg-en (gpio: 138) is used
+[    3.040174] imx-drm 32c00000.bus:display-subsystem: bound imx-lcdif-crtc.0 (ops lcdif_crtc_ops)
+[    3.049650] imx_sec_dsim_drv 32e10000.mipi_dsi: version number is 0x1060200
+[    3.057781] >>> PL-MSG: [MIPI]rad_panel_probe-Set reset high
+[    3.064259] imx-drm 32c00000.bus:display-subsystem: bound 32e10000.mipi_dsi (ops imx_sec_dsim_ops)
+[    3.074214] [drm] Initialized imx-drm 1.0.0 20120507 for 32c00000.bus:display-subsystem on minor 0
+[    3.084119] imx-cpufreq-dt imx-cpufreq-dt: cpu speed grade 3 mkt segment 0 supported-hw 0x8 0x1
+[    3.096351] cfg80211: Loading compiled-in X.509 certificates for regulatory database
+[    3.112148] cfg80211: Loaded X.509 cert 'sforshee: 00b28ddf47aef9cea7'
+[    3.119593] platform regulatory.0: Direct firmware load for regulatory.db failed with error -2
+[    3.123144] ALSA device list:
+[    3.128935] cfg80211: failed to load regulatory.db
+[    3.132595] No soundcards found.
+[    3.145051] Freeing unused kernel memory: 1024K
+[    3.173805] Run /init as init process
+[    3.178182] with arguments:
+[    3.178186] /init
+[    3.178189] with environment:
+[    3.178192] HOME=/
+[    3.178195] TERM=linux
+[    3.178198] buildvariant=userdebug
+[    3.214108] init: init first stage started!
+[    3.219169] init: Unable to open /lib/modules, skipping module loading.
+[    3.226835] init: Switching root to '/first_stage_ramdisk'
+[    3.235562] init: Using Android DT directory /proc/device-tree/firmware/android/
+[    3.262894] init: DSU not detected, proceeding with normal boot
+[    3.280911] init: [libfs_avb]Returning avb_handle with status: Success
+[    3.289184] init: [libfs_avb]: Error verifying vbmeta image: OK_NOT_SIGNED
+[    3.296900] init: [libfs_avb]Found unknown public key used to sign /system
+[    3.304506] init: [libfs_avb]Returning avb_handle for '/system' with status: VerificationError
+[    3.315532] init: [libfs_avb]Built verity table: '1 /dev/block/by-name/system_b /dev/block/by-name/system_b 4096 4096 451493 451493 sha1 b3f2bfb732c028582e7834cd1291fa5fa03d970d 761cd0c2dded618262e32af0fc5fe082836d8992035c7157d04402a5027ed683 10 use_fec_from_device /dev/block/by-name/system_b fec_roots 2 fec_blocks 455050 fec_start 455050 restart_on_corruption ignore_zero_blocks'
+[    3.349967] random: init: uninitialized urandom read (16 bytes read)
+[    3.358853] device-mapper: verity: sha1 using implementation "sha1-generic"
+[    3.376011] EXT4-fs (dm-0): mounted filesystem without journal. Opts: errors=panic,barrier=1,inode_readahead_blks=8
+[    3.395270] random: init: uninitialized urandom read (16 bytes read)
+[    3.403492] device-mapper: verity: sha1 using implementation "sha1-generic"
+[    3.418977] EXT4-fs (dm-1): mounted filesystem without journal. Opts: errors=panic,barrier=1,inode_readahead_blks=8
+[    3.462495] printk: init: 7 output lines suppressed due to ratelimiting
+[    3.489260] random: init: uninitialized urandom read (40 bytes read)
+[    3.618405] random: fast init done
+[    3.706218] init: [libfs_mgr]Warning: unknown flag: late_mount
+[    3.713333] init: Skipping mount of system_ext, system is not dynamic.
+[    3.720665] init: Loading SELinux policy
+[    3.769304] SELinux:  Permission nlmsg_getneigh in class netlink_route_socket not defined in policy.
+[    3.779305] SELinux:  Permission perfmon in class capability2 not defined in policy.
+[    3.787754] SELinux:  Permission bpf in class capability2 not defined in policy.
+[    3.795864] SELinux:  Permission checkpoint_restore in class capability2 not defined in policy.
+[    3.805316] SELinux:  Permission perfmon in class cap2_userns not defined in policy.
+[    3.813764] SELinux:  Permission bpf in class cap2_userns not defined in policy.
+[    3.821863] SELinux:  Permission checkpoint_restore in class cap2_userns not defined in policy.
+[    3.831459] SELinux:  Class anon_inode not defined in policy.
+[    3.837910] SELinux: the above unknown classes and permissions will be denied
+[    3.854392] SELinux:  policy capability network_peer_controls=1
+[    3.861125] SELinux:  policy capability open_perms=1
+[    3.866800] SELinux:  policy capability extended_socket_class=1
+[    3.873425] SELinux:  policy capability always_check_network=0
+[    3.879962] SELinux:  policy capability cgroup_seclabel=0
+[    3.886063] SELinux:  policy capability nnp_nosuid_transition=1
+[    3.892716] SELinux:  policy capability genfs_seclabel_symlinks=0
+[    4.094143] audit: type=1403 audit(4.008:2): auid=4294967295 ses=4294967295 lsm=selinux res=1
+[    4.094169] selinux: SELinux: Loaded policy from /vendor/etc/selinux/precompiled_sepolicy
+[    4.112302] selinux: 
+[    4.122830] selinux: SELinux: Loaded file_contexts
+[    4.128378] selinux: 
+[    4.176579] init: init second stage started!
+[    4.225295] init: Using Android DT directory /proc/device-tree/firmware/android/
+[    4.235556] init: Init cannot set 'ro.boot.boot_devices' to 'soc@0/30800000.bus/30b60000.mmc': Read-only property was already set
+[    4.256980] init: Overriding previous 'ro.' property 'pm.dexopt.boot':'verify' with new value 'quicken'
+[    4.267894] init: Overriding previous 'ro.' property 'persist.sys.usb.config':'adb' with new value 'none'
+[    4.280854] init: Couldn't load property file '/factory/factory.prop': open() failed: No such file or directory: No such file or directory
+[    4.296583] init: Setting product property ro.product.brand to 'Android' (from ro.product.product.brand)
+[    4.306868] init: Setting product property ro.product.device to 'poly_lcc_proto_e16_d2' (from ro.product.product.device)
+[    4.318501] init: Setting product property ro.product.manufacturer to 'Poly' (from ro.product.product.manufacturer)
+[    4.329714] init: Setting product property ro.product.model to 'EVK_8MM' (from ro.product.product.model)
+[    4.450205] cgroup: Unknown subsys name 'schedtune'
+[    4.543225] ueventd: ueventd started!
+[    4.551648] selinux: SELinux: Loaded file_contexts
+[    4.557215] selinux: 
+[    4.560631] ueventd: Parsing file /system/etc/ueventd.rc...
+[    4.568541] ueventd: Parsing file /vendor/ueventd.rc...
+[    4.575556] ueventd: Parsing file /odm/ueventd.rc...
+[    4.581300] ueventd: Unable to read config file '/odm/ueventd.rc': open() failed: No such file or directory
+[    4.591883] ueventd: Parsing file /ueventd.nxp.rc...
+[    4.597674] ueventd: Unable to read config file '/ueventd.nxp.rc': open() failed: No such file or directory
+[    4.615682] apexd: Bootstrap subcommand detected
+[    4.784150] apexd: wait for '/dev/loop-control' took 77ms
+[    4.818351] apexd: Pre-allocated 27 loopback devices
+[    4.824296] apexd: Scanning /system/apex for preinstalled data
+[    4.838904] apexd: Scanning /system_ext/apex for preinstalled data
+[    4.846046] apexd: ... does not exist. Skipping
+[    4.851381] apexd: Scanning /vendor/apex for preinstalled data
+[    4.858022] apexd: ... does not exist. Skipping
+[    4.863365] apexd: Scanning /system/apex looking for APEX packages.
+[    4.870746] apexd: Found /system/apex/com.android.resolv.apex
+[    4.895822] EXT4-fs (loop0): mounted filesystem without journal. Opts: (null)
+[    4.920134] EXT4-fs (loop1): mounted filesystem without journal. Opts: (null)
+[    4.939965] EXT4-fs (loop2): mounted filesystem without journal. Opts: (null)
+[    4.960952] EXT4-fs (loop3): mounted filesystem without journal. Opts: (null)
+[    4.980197] ueventd: Coldboot took 0.37 seconds
+[    4.987847] EXT4-fs (loop4): mounted filesystem without journal. Opts: (null)
+[    5.007124] EXT4-fs (loop5): mounted filesystem without journal. Opts: (null)
+[    5.024179] printk: apexd: 82 output lines suppressed due to ratelimiting
+[    5.392696] module built by ecommander at Mon Apr 1 17:31:18 CDT 2024
+[    5.393519] galcore: clk_get vg clock failed, disable vg!
+[    5.404495] Registered swp emulation handler
+[    5.407286] Galcore version 6.4.3.p2.336687
+[    5.428539] alloc_contig_range: [86100, 8e100) PFNs busy
+[    5.474556] logd.auditd: start
+[    5.478486] logd.klogd: 5393438500
+[    5.522256] watchdogd: watchdogd started (interval 10, margin 20)!
+[    5.569110] [drm] Initialized vivante 1.0.0 20170808 for 38000000.gpu on minor 1
+[    5.591757] tune2fs: tune2fs 1.45.4 (23-Sep-2019)
+[    5.623923] EXT4-fs (mmcblk2p15): Ignoring removed nomblk_io_submit option
+[    5.633370] hantrodec 0 : module inserted. Major = 510
+[    5.636894] EXT4-fs (mmcblk2p15): mounted filesystem with ordered data mode. Opts: errors=remount-ro,nomblk_io_submit
+[    5.640205] hantrodec 1 : module inserted. Major = 510
+[    5.662240] hx280enc: module inserted. Major <509>
+[    5.678901] snvs_rtc 30370000.snvs:snvs-rtc-lp: snvs rtc: failed to find trusty node. Use normal mode.
+[    5.690401] snvs_rtc 30370000.snvs:snvs-rtc-lp: registered as rtc0
+[    5.697403] snvs_rtc 30370000.snvs:snvs-rtc-lp: setting system clock to 1970-01-01T00:00:29 UTC (29)
+[    5.714660] pps_core: LinuxPPS API ver. 1 registered
+[    5.720535] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    5.734320] PTP clock support registered
+[    5.739681] e2fsck: e2fsck 1.45.4 (23-Sep-2019)
+[    5.762542] e2fsck: Pass 1: Checking inodes, blocks, and sizes
+[    5.775069] pps pps0: new PPS source ptp0
+[    5.782336] e2fsck: Pass 2: Checking directory structure
+[    5.789897] e2fsck: Pass 3: Checking directory connectivity
+[    5.791696] libphy: fec_enet_mii_bus: probed
+[    5.796634] e2fsck: Pass 4: Checking reference counts
+[    5.824858] e2fsck: Pass 5: Checking group summary information
+[    5.845419] e2fsck: /dev/block/by-name/userdata: 12/417792 files (0.0% non-contiguous), 68739/1670656 blocks
+[    5.881167] tune2fs: tune2fs 1.45.4 (23-Sep-2019)
+[    5.890192] tune2fs: Setting reserved blocks gid to 1065
+[    5.935057] >>> PL-MSG: Switch RTL8363NB-VB initial successfully
+[    5.941809] found switch: RTL8363NB-VB
+[    5.946337] rtl8363nbvb 30be0000.ethernet-1:1e: failed to register switch: -19
+[    5.955366] fec 30be0000.ethernet eth0: registered PHC device 0
+[    5.971683] EXT4-fs (mmcblk2p15): Using encoding defined by superblock: utf8-12.1.0 with flags 0x0
+[    5.986911] EXT4-fs (mmcblk2p15): mounted filesystem with ordered data mode. Opts: noauto_da_alloc,errors=panic
+[    6.000817] EXT4-fs (mmcblk2p8): Ignoring removed nomblk_io_submit option
+[    6.001443] dhd_module_init in
+[    6.010965] EXT4-fs (mmcblk2p8): recovery complete
+[    6.012377] no wifi platform data, skip
+[    6.017923] EXT4-fs (mmcblk2p8): mounted filesystem with ordered data mode. Opts: errors=remount-ro,nomblk_io_submit
+[    6.022291] DHD wifi platform data is required for Android build
+[    6.040297] DHD registeing bus directly
+[    6.045119] dhd_module_init out
+[    6.060006] imx-sdma 302c0000.dma-controller: firmware found.
+[    6.066744] imx-sdma 302c0000.dma-controller: loaded firmware 4.6
+[    6.078346] imx-sdma 302b0000.dma-controller: firmware found.
+[    6.089158] 30860000.serial: ttymxc0 at MMIO 0x30860000 (irq = 46, base_baud = 5000000) is a IMX
+[    6.090059] imx-sdma 30bd0000.dma-controller: firmware found.
+[    6.113821] fsl-micfil-dai 30080000.micfil: GET IRQ: 23
+[    6.120020] fsl-micfil-dai 30080000.micfil: GET IRQ: 24
+[    6.120295] EXT4-fs (mmcblk2p8): mounted filesystem with ordered data mode. Opts: discard
+[    6.126040] fsl-micfil-dai 30080000.micfil: GET IRQ: 25
+[    6.141114] fsl-micfil-dai 30080000.micfil: GET IRQ: 26
+[    6.147296] EXT4-fs (mmcblk2p11): Ignoring removed nomblk_io_submit option
+[    6.156846] EXT4-fs (mmcblk2p11): mounted filesystem without journal. Opts: errors=remount-ro,nomblk_io_submit
+[    6.203078] EXT4-fs (mmcblk2p11): mounted filesystem without journal. Opts: discard
+[    6.392616] wait_for_keymaster: Waiting for Keymaster device
+[    6.431399] HidlServiceManagement: getService: Trying again for android.hardware.keymaster@4.0::IKeymasterDevice/default...
+[    6.451256] wait_for_keymaster: List of Keymaster HALs found:
+[    6.458079] wait_for_keymaster: Keymaster HAL #1: SoftwareKeymasterDevice from Google SecurityLevel: SOFTWARE HAL: android.hardware.keymaster@4.1::IKeymasterDevice/default
+[    9.729062] random: crng init done
+[    9.733193] random: 7 urandom warning(s) missed due to ratelimiting
+[    9.740839] wait_for_keymaster: Computing HMAC with params { (seed: , nonce: 7f711e5031f2b9cbeb7297b5845ab4c33de477ef567ffb975934ab29c3326610) }
+[    9.740873] wait_for_keymaster: Computing HMAC for SoftwareKeymasterDevice from Google SecurityLevel: SOFTWARE HAL: android.hardware.keymaster@4.1::IKeymasterDevice/default
+[    9.741775] wait_for_keymaster: Using SoftwareKeymasterDevice from Google for encryption.  Security level: SOFTWARE, HAL: android.hardware.keymaster@4.1::IKeymasterDevice/default
+[    9.758424] wait_for_keymaster: Keymaster device ready
+[    9.767604] init: Service 'wait_for_keymaster' (pid 245) exited with status 0 waiting took 3.415000 seconds
+[    9.778151] init: Sending signal 9 to service 'wait_for_keymaster' (pid 245) process group...
+[    9.787706] libprocessgroup: Successfully killed process cgroup uid 0 pid 245 in 0ms
+[    9.798120] init: processing action (late-fs) from (/vendor/etc/init/android.hardware.power-service.imx.rc:7)
+[    9.809593] init: starting service 'vendor.power-hal-aidl'...
+[    9.820015] init: processing action (post-fs-data) from (/system/etc/init/hw/init.rc:528)
+[    9.829736] init: starting service 'exec 4 (/system/bin/vdc checkpoint prepareCheckpoint)'...
+[    9.841919] init: SVC_EXEC service 'exec 4 (/system/bin/vdc checkpoint prepareCheckpoint)' pid 252 (uid 1000 gid 1000+0 context default) started; waiting...
+[    9.864689] init: Service 'exec 4 (/system/bin/vdc checkpoint prepareCheckpoint)' (pid 252) exited with status 0 waiting took 0.023000 seconds
+[    9.878319] init: Sending signal 9 to service 'exec 4 (/system/bin/vdc checkpoint prepareCheckpoint)' (pid 252) process group...
+[    9.918051] vdc: Waited 0ms for vold
+[    9.973010] init (pid 1) is setting deprecated v1 encryption policy; recommend upgrading to v2.
+[    9.982828] fscrypt: AES-256-CTS-CBC using implementation "cts-cbc-aes-ce"
+[   10.006229] fscrypt: AES-256-XTS using implementation "xts-aes-ce"
+[   10.032719] apexd: Scanning /system/apex for preinstalled data
+[   10.046339] apexd: Scanning /system_ext/apex for preinstalled data
+[   10.053387] apexd: ... does not exist. Skipping
+[   10.058740] apexd: Scanning /product/apex for preinstalled data
+[   10.065450] apexd: ... does not exist. Skipping
+[   10.070799] apexd: Scanning /vendor/apex for preinstalled data
+[   10.077437] apexd: ... does not exist. Skipping
+[   10.082782] apexd: Populating APEX database from mounts...
+[   10.089821] apexd: 0 packages restored.
+[   10.094771] apexd: Marking APEXd as starting
+[   10.118160] EXT4-fs (loop6): mounted filesystem without journal. Opts: (null)
+[   10.138192] EXT4-fs (loop7): mounted filesystem without journal. Opts: (null)
+[   10.158125] EXT4-fs (loop8): mounted filesystem without journal. Opts: (null)
+[   10.175958] EXT4-fs (loop9): mounted filesystem without journal. Opts: (null)
+[   10.194589] EXT4-fs (loop10): mounted filesystem without journal. Opts: (null)
+[   10.213702] EXT4-fs (loop11): mounted filesystem without journal. Opts: (null)
+[   10.234295] EXT4-fs (loop12): mounted filesystem without journal. Opts: (null)
+[   10.252728] EXT4-fs (loop13): mounted filesystem without journal. Opts: (null)
+[   10.273353] EXT4-fs (loop14): mounted filesystem without journal. Opts: (null)
+[   10.368364] EXT4-fs (loop15): mounted filesystem without journal. Opts: (null)
+[   10.389761] EXT4-fs (loop16): mounted filesystem without journal. Opts: (null)
+[   10.409125] EXT4-fs (loop17): mounted filesystem without journal. Opts: (null)
+[   10.429931] EXT4-fs (loop18): mounted filesystem without journal. Opts: (null)
+[   10.451201] EXT4-fs (loop19): mounted filesystem without journal. Opts: (null)
+[   10.471454] EXT4-fs (loop20): mounted filesystem without journal. Opts: (null)
+[   10.492783] EXT4-fs (loop21): mounted filesystem without journal. Opts: (null)
+[   10.511817] EXT4-fs (loop22): mounted filesystem without journal. Opts: (null)
+[   10.534683] EXT4-fs (loop23): mounted filesystem without journal. Opts: (null)
+[   10.555007] EXT4-fs (loop24): mounted filesystem without journal. Opts: (null)
+[   10.574557] EXT4-fs (loop25): mounted filesystem without journal. Opts: (null)
+[   10.595385] EXT4-fs (loop26): mounted filesystem without journal. Opts: (null)
+[   10.765001] fscrypt (mmcblk2p15, inode 24578): v1 policies can't be used on casefolded directories
+[   10.823869] vdc: Waited 0ms for vold
+[   11.025258] apexd: Snapshot DE subcommand detected
+[   11.032014] apexd: Marking APEXd as ready
+[   11.386585] init: Top-level directory needs encryption action, eg mkdir /data/etc <mode> <uid> <gid> encryption=Require
+[   11.399871] init: Encryption policy of /data/etc set to 19068a2d34654602 v1 modes 1/4 flags 0x0
+[   11.826664] logd.daemon: reinit
+[   11.894349] update_verifier: Started with arg 1: nonencrypted
+[   11.905184] update_verifier: Booting slot 1: isSlotMarkedSuccessful=1
+[   11.912537] update_verifier: Leaving update_verifier.
+[   12.003372] Mass Storage Function, version: 2009/09/11
+[   12.009351] LUN: removable file: (no medium)
+[   12.022751] using random self ethernet address
+[   12.028025] using random host ethernet address
+[   12.034935] file system registered
+[   12.500363] healthd: batteryCapacityLevelPath not found
+[   12.533180] healthd: batteryChargeTimeToFullNowPath. not found
+[   12.540282] healthd: batteryFullChargeDesignCapacityUahPath. not found
+[   13.356690] logd: logdr: UID=0 GID=0 PID=414 b tail=0 logMask=99 pid=0 start=0ns timeout=0ns
+[   13.896122] read descriptors
+[   13.903920] read strings
+[   14.326354] type=1107 audit(38.124:3): uid=0 auid=4294967295 ses=4294967295 subj=u:r:init:s0 msg='avc: denied { set } for property=vendor.display.state pid=335 uid=1000 gid=1003 scontext=u:r:hal_graphics_composer_default:s0 tcontext=u:object_r:vendor_default_prop:s0 tclass=property_service permissive=1'
+[   14.425245] type=1107 audit(38.220:4): uid=0 auid=4294967295 ses=4294967295 subj=u:r:init:s0 msg='avc: denied { set } for property=persist.adb.notify pid=340 uid=0 gid=0 scontext=u:r:hal_usb_impl:s0 tcontext=u:object_r:default_prop:s0 tclass=property_service permissive=1'
+[   14.801401] android_work: sent uevent USB_STATE=CONNECTED
+[   14.893498] android_work: sent uevent USB_STATE=CONFIGURED
+[   15.421086] init: starting service 'bootanim'...
+[   15.434363] init: Control message: Processed ctl.start for 'bootanim' from pid: 350 (/system/bin/surfaceflinger)
+[   16.029763] >>> PL-MSG: [SEC-DSIM]bpp = 24 ,pix_clk=76556000 ,max_data_rate=1500000000 ,bit_clk=499500000 \x0a
+[   16.042397] >>> PL-MSG: [SEC-DSIM]PMS_P = 2 ,PMS_M=37 ,PMS_S=0\x0a
+[   16.051189] >>> PL-MSG: [SEC-DSIM]dsim->pms = 4128 dsim->bit_clk=499500 dsim->pix_clk=76556\x0a
+[   16.064344] >>> PL-MSG: [SEC-DSIM]lcc_get_model_type() = LCC_PROTO
+[   16.073570] >>> PL-MSG: [MIPI]rad_panel_prepare-Set reset high
+[   16.080285] >>> PL-MSG: [MIPI]rad_panel_prepare-Set reset low
+[   16.086926] >>> PL-MSG: [MIPI]rad_panel_prepare-Set reset high
+[   16.113085] >>> PL-MSG: [MIPI]LCC LCM initial-Enter Page3
+[   16.119304] >>> PL-MSG: [MIPI]LCC LCM initial-GIP_1
+[   16.126289] >>> PL-MSG: [MIPI]LCC LCM initial-GIP_2
+[   16.132271] >>> PL-MSG: [MIPI]LCC LCM initial-GIP_3
+[   16.139833] >>> PL-MSG: [MIPI]LCC LCM initial-Enter Page4
+[   16.146038] >>> PL-MSG: [MIPI]LCC LCM initial-CMD_Page4
+[   16.152324] >>> PL-MSG: [MIPI]LCC LCM initial-Enter Page1
+[   16.158524] >>> PL-MSG: [MIPI]LCC LCM initial-CMD_Page1
+[   16.165407] >>> PL-MSG: [MIPI]LCC LCM initial-Enter Page0
+[   16.171635] >>> PL-MSG: [MIPI]LCC LCM initial-Sleep Out
+[   16.302751] >>> PL-MSG: [MIPI]LCC LCM initial-Display On
+[   18.659334] type=1107 audit(42.456:5): uid=0 auid=4294967295 ses=4294967295 subj=u:r:init:s0 msg='avc: denied { set } for property=persist.poly.product.manufacturer pid=426 uid=0 gid=0 scontext=u:r:poly_init:s0 tcontext=u:object_r:default_prop:s0 tclass=property_service permissive=1'
+[   23.071177] apexd: Can't open /system_ext/apex for reading : No such file or directory
+[   23.080094] apexd: Can't open /product/apex for reading : No such file or directory
+[   23.088737] apexd: Can't open /vendor/apex for reading : No such file or directory
+[   25.583988] AidlLazyServiceRegistrar: Process has 1 (of 1 available) client(s) in use after notification android.apex.IApexService has clients: 1
+[   31.773577] init: Control message: Processed ctl.start for 'idmap2d' from pid: 513 (system_server)
+[   33.841093] VSD_3V3: disabling
+[   34.330026] init: processing action (sys.sysctl.extra_free_kbytes=*) from (/system/etc/init/hw/init.rc:990)
+[   35.584255] AidlLazyServiceRegistrar: Process has 0 (of 1 available) client(s) in use after notification android.apex.IApexService has clients: 0
+[   35.598268] AidlLazyServiceRegistrar: Shutdown prevented by forcePersist override flag.
+[   43.619467] init: Sending signal 9 to service 'idmap2d' (pid 400) process group...
+[   43.633564] libprocessgroup: Successfully killed process cgroup uid 1000 pid 400 in 5ms
+[   43.709595] init: Control message: Processed ctl.stop for 'idmap2d' from pid: 513 (system_server)
+[   43.719766] init: Service 'idmap2d' (pid 400) received signal 9
+[   47.233892] read descriptors
+[   47.238151] read strings
+[   47.242174] read descriptors
+[   47.246569] read strings
+[   47.967725] Generic PHY fixed-0:00: attached PHY driver [Generic PHY] (mii_bus:phy_addr=fixed-0:00, irq=POLL)
+[   47.981932] fec 30be0000.ethernet eth0: Link is Up - 1Gbps/Full - flow control off
+[   48.015308] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   57.177404] init: Service 'bootanim' (pid 490) exited with status 0 oneshot service took 41.748001 seconds in background
+[   57.189096] init: Sending signal 9 to service 'bootanim' (pid 490) process group...
+[   57.197960] libprocessgroup: Successfully killed process cgroup uid 1003 pid 490 in 0ms
+[   57.323992] init: processing action (sys.boot_completed=1) from (/system/etc/init/hw/init.rc:981)
+[   57.343315] init: starting service 'exec 16 (/bin/rm -rf /data/per_boot)'...
+[   57.346770] fscrypt (mmcblk2p15, inode 24579): v1 policies can't be used on casefolded directories
+[   57.364502] init: SVC_EXEC service 'exec 16 (/bin/rm -rf /data/per_boot)' pid 1053 (uid 1000 gid 1000+0 context default) started; waiting...
+[   57.432164] init: Service 'exec 16 (/bin/rm -rf /data/per_boot)' (pid 1053) exited with status 0 waiting took 0.068000 seconds
+[   57.448991] init: Sending signal 9 to service 'exec 16 (/bin/rm -rf /data/per_boot)' (pid 1053) process group...
+[   57.463767] libprocessgroup: Successfully killed process cgroup uid 1000 pid 1053 in 0ms
+[   57.497151] init: Encryption policy of /data/per_boot set to a9df53fb3fc7024e v1 modes 1/4 flags 0x0
+[   57.523023] clk_disable_unused: enabled
+[   59.174935] apexd: destroyCeSnapshotsNotSpecified() received by ApexService.
+[   60.584806] AidlLazyServiceRegistrar: Process has 1 (of 1 available) client(s) in use after notification android.apex.IApexService has clients: 1
+[   60.605411] AidlLazyServiceRegistrar: Process has 0 (of 1 available) client(s) in use after notification android.apex.IApexService has clients: 0
+[   60.631296] AidlLazyServiceRegistrar: Shutdown prevented by forcePersist override flag.
+[   61.738757] type=1107 audit(1712010853.644:6): uid=0 auid=4294967295 ses=4294967295 subj=u:r:init:s0 msg='avc: denied { set } for property=sys.powerctl pid=1257 uid=10088 gid=10088 scontext=u:r:untrusted_app:s0:c88,c256,c512,c768 tcontext=u:object_r:powerctl_prop:s0 tclass=property_service permissive=1'
+[   61.876043] >>> PL-MSG: [MIPI]rad_panel_disable
+[   61.905086] >>> PL-MSG: [MIPI]LCC LCM-Enter Page0
+[   61.965316] >>> PL-MSG: [MIPI]LCC LCM initial-Display Off
+[   61.999703] >>> PL-MSG: [MIPI]LCC LCM initial-Sleep In
+[   62.095309] printk: Binder:256_2: 221 output lines suppressed due to ratelimiting
+[   62.157149] >>> PL-MSG: [MIPI]rad_panel_unprepare-Set reset low
+[   62.185150] >>> PL-MSG: [MIPI]rad_panel_unprepare-Set reset high
+[   62.282653] libprocessgroup: Failed to kill process cgroup uid 0 pid 318 in 245ms, 1 processes remain
+[   62.294913] init: Service 'lmkd' (pid 197) received signal 15
+[   62.302157] init: Sending signal 9 to service 'lmkd' (pid 197) process group...
+[   62.311792] libprocessgroup: Successfully killed process cgroup uid 1069 pid 197 in 0ms
+[   62.323008] init: Service 'system_suspend' (pid 241) received signal 15
+[   62.330573] init: Sending signal 9 to service 'system_suspend' (pid 241) process group...
+[   62.340004] libprocessgroup: Successfully killed process cgroup uid 1000 pid 241 in 0ms
+[   62.351291] init: Service 'vendor.boot-hal-1-0' (pid 242) received signal 15
+[   62.359285] init: Sending signal 9 to service 'vendor.boot-hal-1-0' (pid 242) process group...
+[   62.368967] libprocessgroup: Successfully killed process cgroup uid 0 pid 242 in 0ms
+[   62.385550] binder: undelivered death notification, b40000748d8a0820
+[   62.420003] vdc: Waited 0ms for vold
+[   62.446178] binder: undelivered death notification, b40000748d8b8b30
+[   62.453373] binder: undelivered death notification, b40000748d89d960
+[   62.453680] vdc: Waited 0ms for vold
+[   62.460649] binder: 208:208 transaction failed 29189/-22, size 100-0 line 2723

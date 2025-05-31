@@ -2,44 +2,19 @@
 
 In the the [last part](/projects/reverse-engineering-poly-tc8-part-1) I mentioned that SELinux was kicking us out shortly after logging in. However I never mentioned how I found that out, the first thing I will go over is how we will quickly collect logs on sytem startup so we can see what's kicking us out and come up with a plan to stop it.
 
-```typescript
-"use client";
 
-import Nav from "./nav";
-import MyFooter from "./footer";
-import Link from "next/link";
+## Retreiving dmesg logs
 
-export default function Home() {
-  return (
-    <div style={{ minHeight: "100vh", width: "100%" }}>
-      <div className="content-container">
-        <Nav />
+We will want to extract some logs from the device from the moment it starts up to as soon as it kicks us out. These are logs are accessed with the [dmesg](https://en.wikipedia.org/wiki/Dmesg) (diagnostic messages) command in linux 
 
-        <div style={{ marginTop: "2rem" }}>
-          <h3>
-            Hello and welcome! My name is Spencer Lommel, I mostly program in C,
-            C++, Go, and sometimes Python when needed, so I don&apos;t really do a
-            lot of web development :P
-          </h3>
+We can run `watch -n 1 "adb devices"` and as soon as we see our device come online we will want to run `adb shell dmesg -w | tee dmesg-log.txt`
 
-          <p>
-            I was working on a pretty cool embedded Linux project and I got a
-            lot of questions online about it so I decided to make this page.
-            Check out the project{" "}
-            <Link href="/projects/reverse-engineering-poly-tc8-part-1">here!</Link>
-          </p>
+This will run the command `dmesg -w` on our target device we are connected to but it will pipe the output of this command to a file on our computer called `dmesg-log.txt`.
 
-          <p>
-            I am a CS Major at NDSU, and a Systems Programmer Intern at Marvin
-            Windows. I really like hardware reverse engineering and working with
-            microcontrollers! Check out my Github or Projects tab to see more of what I
-            like to make! :-)
-          </p>
+![dmesg command in terminal](/assets/reverse-engineering-poly-tc8-part-2/dmesg-command-running.png)
 
-          <MyFooter />
-        </div>
-      </div>
-    </div>
-  );
-}
-```
+As this command runs we see our device connected on the left and our log output on the right. Once we get kicked out of this device we can start to look through the logs.
+
+
+Here we can see the logs successfully saved to our computer!
+![dmesg command output](/assets/reverse-engineering-poly-tc8-part-2/dmesg-command-output.png)
