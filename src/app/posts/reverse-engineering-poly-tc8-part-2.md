@@ -86,12 +86,23 @@ sync
 echo 3 > /proc/sys/vm/drop_caches
 ```
 
+All we need to do now is start the device in recovery mode and run our commands above!
 
 ![dmesg command output](/assets/reverse-engineering-poly-tc8-part-2/freezing-the-device.png)
 
 
-
+I then wait a few minutes just to be 100% sure I don't get kicked out and looks like I'm in the clear! I also ran `dmesg -w` again to see what output we get. It looks like SELinux and a service called zygote are having issues starting which is exactly what we want!
 
 ![dmesg command output](/assets/reverse-engineering-poly-tc8-part-2/dmesg-after-freeze.png)
 
 
+# Now for firmware extraction
+
+If you to read about how I was able to extract the firmware off this device and then extract a linux device tree from the firmware go read [part 3](/projects/reverse-engineering-poly-tc8-part-3)!
+
+I will also dive into probing for UART a bit to see what other information we can find about this board which we will need for building a new linux image that we can flash onto this device.
+
+
+### Thank you!
+
+Thank you for reading! if you have any questions or comments feel free to reach out at `me@spencerlommel.com`

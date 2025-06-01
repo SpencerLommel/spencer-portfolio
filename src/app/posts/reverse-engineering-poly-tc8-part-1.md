@@ -90,3 +90,7 @@ Because this post is getting pretty long I'm going to break this up into a few p
 In [part 2](/projects/reverse-engineering-poly-tc8-part-2) we will see what linux services are running on this device and how we can quickly take some logs to come up with an attack plan to stop SELinux. This way we will have some more time in our shell to do a firmware extraction.
 
 After this I'll go over extracting the firmware so we can do a more in-depth look at what's going on in our system and how we can extract a device tree which is an extremely important bit of information to have to create a new Linux image with this device using a tool like [Yocto](https://www.yoctoproject.org/)
+
+### Thank you!
+
+Thank you for reading! if you have any questions or comments feel free to reach out at `me@spencerlommel.com`
