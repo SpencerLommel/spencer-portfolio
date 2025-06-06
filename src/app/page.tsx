@@ -3,6 +3,7 @@
 import Nav from "./nav";
 import MyFooter from "./footer";
 import Link from "next/link";
+import { Analytics } from "@vercel/analytics/next";
 
 export default function Home() {
   return (
@@ -36,6 +37,7 @@ export default function Home() {
           <MyFooter />
         </div>
       </div>
+      <Analytics />
     </div>
   );
 }
