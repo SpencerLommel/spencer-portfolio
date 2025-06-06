@@ -1,0 +1,188 @@
+spencer@spencer-thinkpad:~$ adb shell
+PolyTC8-793C5AFD:/ # ls
+acct  bugreports  d            debug_ramdisk  etc     init.environ.rc       lost+found  odm          proc     sdcard   system
+apex  cache       data         default.prop   facres  init.recovery.nxp.rc  metadata    oem          product  storage  system_ext
+bin   config      data_mirror  dev            init    linkerconfig          mnt         postinstall  res      sys      vendor
+PolyTC8-793C5AFD:/ # mount
+/dev/block/dm-0 on / type ext4 (ro,seclabel,noatime,errors=panic,inode_readahead_blks=8)
+tmpfs on /dev type tmpfs (rw,seclabel,nosuid,relatime,mode=755)
+devpts on /dev/pts type devpts (rw,seclabel,relatime,mode=600,ptmxmode=000)
+proc on /proc type proc (rw,relatime,gid=3009,hidepid=invisible)
+sysfs on /sys type sysfs (rw,seclabel,relatime)
+selinuxfs on /sys/fs/selinux type selinuxfs (rw,relatime)
+tmpfs on /mnt type tmpfs (rw,seclabel,nosuid,nodev,noexec,relatime,mode=755,gid=1000)
+tmpfs on /mnt/installer type tmpfs (rw,seclabel,nosuid,nodev,noexec,relatime,mode=755,gid=1000)
+tmpfs on /mnt/androidwritable type tmpfs (rw,seclabel,nosuid,nodev,noexec,relatime,mode=755,gid=1000)
+/dev/block/dm-1 on /vendor type ext4 (ro,seclabel,noatime,errors=panic,inode_readahead_blks=8)
+tmpfs on /apex type tmpfs (rw,seclabel,nosuid,nodev,noexec,relatime,mode=755)
+tmpfs on /linkerconfig type tmpfs (rw,seclabel,nosuid,nodev,noexec,relatime,mode=755)
+none on /dev/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,blkio)
+none on /sys/fs/cgroup type cgroup2 (rw,nosuid,nodev,noexec,relatime)
+none on /dev/cpuctl type cgroup (rw,nosuid,nodev,noexec,relatime,cpu)
+none on /acct type cgroup (rw,nosuid,nodev,noexec,relatime,cpuacct)
+none on /dev/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,cpuset,noprefix,release_agent=/sbin/cpuset_release_agent)
+none on /dev/memcg type cgroup (rw,nosuid,nodev,noexec,relatime,memory)
+tracefs on /sys/kernel/tracing type tracefs (rw,seclabel,relatime)
+none on /sys/kernel/debug type debugfs (rw,seclabel,relatime,mode=755)
+none on /config type configfs (rw,nosuid,nodev,noexec,relatime)
+binder on /dev/binderfs type binder (rw,relatime,max=1048576,stats=global)
+none on /sys/fs/fuse/connections type fusectl (rw,relatime)
+none on /sys/fs/bpf type bpf (rw,nosuid,nodev,noexec,relatime)
+pstore on /sys/fs/pstore type pstore (rw,seclabel,nosuid,nodev,noexec,relatime)
+/dev/block/mmcblk2p15 on /data type ext4 (rw,seclabel,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,resgid=1065,errors=panic)
+/dev/block/mmcblk2p8 on /facres type ext4 (rw,seclabel,nosuid,nodev,noatime,discard)
+/dev/block/mmcblk2p11 on /metadata type ext4 (rw,sync,seclabel,nosuid,nodev,noatime,discard)
+tmpfs on /linkerconfig type tmpfs (rw,seclabel,nosuid,nodev,noexec,relatime,mode=755)
+/dev/block/mmcblk2p15 on /data/user/0 type ext4 (rw,seclabel,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,resgid=1065,errors=panic)
+tmpfs on /data_mirror type tmpfs (rw,seclabel,nosuid,nodev,noexec,relatime,mode=700,gid=1000)
+/dev/block/mmcblk2p15 on /data_mirror/data_ce/null type ext4 (rw,seclabel,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,resgid=1065,errors=panic)
+/dev/block/mmcblk2p15 on /data_mirror/data_ce/null/0 type ext4 (rw,seclabel,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,resgid=1065,errors=panic)
+/dev/block/mmcblk2p15 on /data_mirror/data_de/null type ext4 (rw,seclabel,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,resgid=1065,errors=panic)
+/dev/block/mmcblk2p15 on /data_mirror/cur_profiles type ext4 (rw,seclabel,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,resgid=1065,errors=panic)
+/dev/block/loop6 on /apex/com.android.resolv@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop6 on /apex/com.android.resolv type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop7 on /apex/com.android.vndk.v30@1 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop7 on /apex/com.android.vndk.v30 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop8 on /apex/com.android.neuralnetworks@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop8 on /apex/com.android.neuralnetworks type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop9 on /apex/com.android.i18n@1 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop9 on /apex/com.android.i18n type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop10 on /apex/com.android.ipsec@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop10 on /apex/com.android.ipsec type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop11 on /apex/com.android.adbd@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop11 on /apex/com.android.adbd type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop12 on /apex/com.android.art@1 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop12 on /apex/com.android.art type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop13 on /apex/com.android.tzdata@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop13 on /apex/com.android.tzdata type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop14 on /apex/com.android.wifi@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop14 on /apex/com.android.wifi type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop15 on /apex/com.android.os.statsd@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop15 on /apex/com.android.os.statsd type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop16 on /apex/com.android.tethering@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop16 on /apex/com.android.tethering type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop17 on /apex/com.android.sdkext@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop17 on /apex/com.android.sdkext type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop18 on /apex/com.android.media.swcodec@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop18 on /apex/com.android.media.swcodec type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop19 on /apex/com.android.extservices@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop19 on /apex/com.android.extservices type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop20 on /apex/com.android.cellbroadcast@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop20 on /apex/com.android.cellbroadcast type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop21 on /apex/com.android.permission@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop21 on /apex/com.android.permission type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop22 on /apex/com.android.apex.cts.shim@1 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop22 on /apex/com.android.apex.cts.shim type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop23 on /apex/com.android.runtime@1 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop23 on /apex/com.android.runtime type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop24 on /apex/com.android.media@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop24 on /apex/com.android.media type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop25 on /apex/com.android.mediaprovider@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop25 on /apex/com.android.mediaprovider type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop26 on /apex/com.android.conscrypt@300000000 type ext4 (ro,dirsync,seclabel,nodev,noatime)
+/dev/block/loop26 on /apex/com.android.conscrypt type ext4 (ro,dirsync,seclabel,nodev,noatime)
+tmpfs on /data/misc/poly/delegate type tmpfs (rw,seclabel,relatime,mode=777,gid=1000)
+tmpfs on /data/misc/poly/tmp type tmpfs (rw,seclabel,relatime,mode=777,gid=1000)
+tmpfs on /storage type tmpfs (rw,seclabel,nosuid,nodev,noexec,relatime,mode=755,gid=1000)
+adb on /dev/usb-ffs/adb type functionfs (rw,relatime)
+mtp on /dev/usb-ffs/mtp type functionfs (rw,relatime)
+ptp on /dev/usb-ffs/ptp type functionfs (rw,relatime)
+PolyTC8-793C5AFD:/ # lsblk
+/system/bin/sh: lsblk: inaccessible or not found
+127|PolyTC8-793C5AFD:/ # cat /pr
+proc/     product/
+127|PolyTC8-793C5AFD:/ # cat /proc/mounts                                                                                                                      
+/dev/block/dm-0 / ext4 ro,seclabel,noatime,errors=panic,inode_readahead_blks=8 0 0
+tmpfs /dev tmpfs rw,seclabel,nosuid,relatime,mode=755 0 0
+devpts /dev/pts devpts rw,seclabel,relatime,mode=600,ptmxmode=000 0 0
+proc /proc proc rw,relatime,gid=3009,hidepid=invisible 0 0
+sysfs /sys sysfs rw,seclabel,relatime 0 0
+selinuxfs /sys/fs/selinux selinuxfs rw,relatime 0 0
+tmpfs /mnt tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,mode=755,gid=1000 0 0
+tmpfs /mnt/installer tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,mode=755,gid=1000 0 0
+tmpfs /mnt/androidwritable tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,mode=755,gid=1000 0 0
+/dev/block/dm-1 /vendor ext4 ro,seclabel,noatime,errors=panic,inode_readahead_blks=8 0 0
+tmpfs /apex tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,mode=755 0 0
+tmpfs /linkerconfig tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,mode=755 0 0
+none /dev/blkio cgroup rw,nosuid,nodev,noexec,relatime,blkio 0 0
+none /sys/fs/cgroup cgroup2 rw,nosuid,nodev,noexec,relatime 0 0
+none /dev/cpuctl cgroup rw,nosuid,nodev,noexec,relatime,cpu 0 0
+none /acct cgroup rw,nosuid,nodev,noexec,relatime,cpuacct 0 0
+none /dev/cpuset cgroup rw,nosuid,nodev,noexec,relatime,cpuset,noprefix,release_agent=/sbin/cpuset_release_agent 0 0
+none /dev/memcg cgroup rw,nosuid,nodev,noexec,relatime,memory 0 0
+tracefs /sys/kernel/tracing tracefs rw,seclabel,relatime 0 0
+none /sys/kernel/debug debugfs rw,seclabel,relatime,mode=755 0 0
+none /config configfs rw,nosuid,nodev,noexec,relatime 0 0
+binder /dev/binderfs binder rw,relatime,max=1048576,stats=global 0 0
+none /sys/fs/fuse/connections fusectl rw,relatime 0 0
+none /sys/fs/bpf bpf rw,nosuid,nodev,noexec,relatime 0 0
+pstore /sys/fs/pstore pstore rw,seclabel,nosuid,nodev,noexec,relatime 0 0
+/dev/block/by-name/userdata /data ext4 rw,seclabel,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,resgid=1065,errors=panic 0 0
+/dev/block/by-name/facres /facres ext4 rw,seclabel,nosuid,nodev,noatime,discard 0 0
+/dev/block/by-name/metadata /metadata ext4 rw,sync,seclabel,nosuid,nodev,noatime,discard 0 0
+tmpfs /linkerconfig tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,mode=755 0 0
+/dev/block/by-name/userdata /data/user/0 ext4 rw,seclabel,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,resgid=1065,errors=panic 0 0
+tmpfs /data_mirror tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,mode=700,gid=1000 0 0
+/dev/block/by-name/userdata /data_mirror/data_ce/null ext4 rw,seclabel,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,resgid=1065,errors=panic 0 0
+/dev/block/by-name/userdata /data_mirror/data_ce/null/0 ext4 rw,seclabel,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,resgid=1065,errors=panic 0 0
+/dev/block/by-name/userdata /data_mirror/data_de/null ext4 rw,seclabel,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,resgid=1065,errors=panic 0 0
+/dev/block/by-name/userdata /data_mirror/cur_profiles ext4 rw,seclabel,nosuid,nodev,noatime,nodiratime,noauto_da_alloc,resgid=1065,errors=panic 0 0
+/dev/block/loop6 /apex/com.android.resolv@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop6 /apex/com.android.resolv ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop7 /apex/com.android.vndk.v30@1 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop7 /apex/com.android.vndk.v30 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop8 /apex/com.android.neuralnetworks@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop8 /apex/com.android.neuralnetworks ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop9 /apex/com.android.i18n@1 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop9 /apex/com.android.i18n ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop10 /apex/com.android.ipsec@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop10 /apex/com.android.ipsec ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop11 /apex/com.android.adbd@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop11 /apex/com.android.adbd ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop12 /apex/com.android.art@1 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop12 /apex/com.android.art ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop13 /apex/com.android.tzdata@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop13 /apex/com.android.tzdata ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop14 /apex/com.android.wifi@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop14 /apex/com.android.wifi ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop15 /apex/com.android.os.statsd@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop15 /apex/com.android.os.statsd ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop16 /apex/com.android.tethering@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop16 /apex/com.android.tethering ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop17 /apex/com.android.sdkext@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop17 /apex/com.android.sdkext ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop18 /apex/com.android.media.swcodec@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop18 /apex/com.android.media.swcodec ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop19 /apex/com.android.extservices@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop19 /apex/com.android.extservices ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop20 /apex/com.android.cellbroadcast@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop20 /apex/com.android.cellbroadcast ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop21 /apex/com.android.permission@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop21 /apex/com.android.permission ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop22 /apex/com.android.apex.cts.shim@1 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop22 /apex/com.android.apex.cts.shim ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop23 /apex/com.android.runtime@1 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop23 /apex/com.android.runtime ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop24 /apex/com.android.media@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop24 /apex/com.android.media ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop25 /apex/com.android.mediaprovider@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop25 /apex/com.android.mediaprovider ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop26 /apex/com.android.conscrypt@300000000 ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+/dev/block/loop26 /apex/com.android.conscrypt ext4 ro,dirsync,seclabel,nodev,noatime 0 0
+tmpfs /data/misc/poly/delegate tmpfs rw,seclabel,relatime,mode=777,gid=1000 0 0
+tmpfs /data/misc/poly/tmp tmpfs rw,seclabel,relatime,mode=777,gid=1000 0 0
+tmpfs /storage tmpfs rw,seclabel,nosuid,nodev,noexec,relatime,mode=755,gid=1000 0 0
+adb /dev/usb-ffs/adb functionfs rw,relatime 0 0
+mtp /dev/usb-ffs/mtp functionfs rw,relatime 0 0
+ptp /dev/usb-ffs/ptp functionfs rw,relatime 0 0
+PolyTC8-793C5AFD:/ # ls /boot
+ne
+ls: /boot: No such file or directory
+1|PolyTC8-793C5AFD:/ # strings /proc/device-tree/model
+POLY LCC PROTO
+PolyTC8-793C5AFD:/ # cat /proc/cmdline
+stack_depot_disable=on kasan.stacktrace=off kvm-arm.mode=protected cgroup_disable=pressure cgroup.memory=nokmem console=ttymxc1,115200 earlycon=ec_imx6q,0x30890000,115200 init=/init androidboot.console=ttymxc1 androidboot.hardware=nxp firmware_class.path=/vendor/firmware loop.max_part=7 transparent_hugepage=never androidboot.lcd_density=240 androidboot.primary_display=imx-drm androidboot.wificountrycode=CN moal.mod_para=wifi_mod_para_sd8987.conf androidboot.wifivendor=bcm cma=800M@0x400M-0xb80M androidboot.vendor.sysrq=1 androidboot.selinux=permissive buildvariant=userdebug androidboot.serialno=1d2621aac655a072 androidboot.btmacaddr=1d:26:21:aa:c6:55 androidboot.rstkey_result=FAIL androidboot.soc_type=imx8mm androidboot.boot_devices=soc@0/30800000.bus/30b60000.mmc androidboot.boottime=1BLL:0,1BLE:5162,KL:0,KD:0,AVB:1331,ODT:0,SW:0 androidboot.bootreason=cold,powerkey androidboot.dtbo_idx=0 androidboot.keystore=software androidboot.verifiedbootstate=orange androidboot.flash.locked=0 androidboot.slot_suffix=_b androidboot.vbmeta.device=PARTUUID=389e5d51-3f04-4ff0-9e38-0eee9f9a1463 androidboot.vbmeta.avb_version=1.1 androidboot.vbmeta.device_state=unlocked androidboot.vbmeta.hash_alg=sha256 androidboot.vbmeta.size=5568 androidboot.vbmeta.digest=2758fb75872a395fd29603250c1d001c25e25280d122b8fe99cf3f1ab1fae361 androidboot.vbmeta.invalidate_on_error=yes androidboot.veritymode=enforcing androidboot.force_normal_boot=1
+PolyTC8-793C5AFD:/ # ls /dev/block/by-name/                                                                                                                    
+boot_a  cache  dtbo_a  facres  metadata  mmcblk2       mmcblk2boot1  system_a  userdata  vbmeta_b  vendor_b
+boot_b  cert   dtbo_b  fbmisc  misc      mmcblk2boot0  presistdata   system_b  vbmeta_a  vendor_a
+PolyTC8-793C5AFD:/ # 
