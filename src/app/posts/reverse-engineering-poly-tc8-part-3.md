@@ -36,3 +36,28 @@ WOO! This is where project gets exciting! We have the device files on our machin
 
 You might notice some red links above, those are broken symlinks because in the actual device they link to other locations on the device filesystem. This is fine though because we extracted all the data, it's just not linking to the correct spot because it's in a different spot on my computer compared to the device.
 
+## Extracting the DTB and converting it to a DTS
+
+When a linux image is compiled, it starts with source code which is then compiled down to machine readable code like a .img or .dtb. This gets rid of unnecesary information and only contains info the system needs. 
+
+Because of this, the .img only contains a DTB which is a Device Tree Blob. What we need is a DTS or Device Tree Source. 
+
+
+Now we will extract the DTB from our image. This can easily be done with tools like [extract-dtb](https://pypi.org/project/extract-dtb/)
+
+![dtb extraction](/assets/reverse-engineering-poly-tc8-part-3/dtb-extraction.png)
+
+
+We now have DTB that we extracted from our image which we extracted from our board! The next step is to convert this to a DTS file we can use to build a new linux image
+
+
+![dts from da dtb from da board that will be turned back to a dtb and go back on da board](/assets/reverse-engineering-poly-tc8-part-3/dts-from-dtb.png)
+
+We now have a DTS! This is in the correct format that we can use with Yocto.
+
+
+### The Extracted DTS
+Here is what our DTS file looks like for those who are curious. It's essentially just a file that maps physical addresses on a board to the processor so we know what routes to take when interacting with them.
+
+It's essentially like a roadmap that tells us how to get to each peripheral
+<Log src="/reverse-engineering-poly-tc8-part-3/poly-tc8.dts"></Log>
