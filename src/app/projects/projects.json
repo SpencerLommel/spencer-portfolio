@@ -15,12 +15,12 @@
     "image": "/reverse-engineering-poly-tc8-part-2/poly-tc8-pcb-with-uart-probes.jpg",
     "markdown": "reverse-engineering-poly-tc8-part-2.md"
   },
-    {
+  {
     "id": "reverse-engineering-poly-tc8-part-3",
     "title": "Reverse Engineering Poly TC8 Part 3",
     "shortDescription": "Firmware extraction, understanding the file structure, and retrieving the device tree to make a custom linux image.",
     "date": "04-10-2025",
-    "image": "/reverse-engineering-poly-tc8-part-2/poly-tc8-pcb-with-uart-probes.jpg",
+    "image": "/assets/reverse-engineering-poly-tc8-part-3/dts-from-dtb.png",
     "markdown": "reverse-engineering-poly-tc8-part-3.md"
   }
 ]

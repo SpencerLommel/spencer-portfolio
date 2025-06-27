@@ -61,3 +61,10 @@ Here is what our DTS file looks like for those who are curious. It's essentially
 
 It's essentially like a roadmap that tells us how to get to each peripheral
 <Log src="/reverse-engineering-poly-tc8-part-3/poly-tc8.dts"></Log>
+
+
+# Building our custom Linux image!
+
+In [part 4](/projects/reverse-engineering-poly-tc8-part-4) (and hopefully the last part) I will give a brief rundown of the Yotco Project and how we can use it to build custom Linux image for our device!
+
+Using Yocto can be pretty complex and there's a lot of configuration so I will mostly skip into the development portion and skip the setup process. I will link to some good resources online for those who want to learn more about Yocto! 

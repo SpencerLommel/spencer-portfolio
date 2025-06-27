@@ -5,10 +5,10 @@ If you for some reason really care about my posts and would like to get an early
 posts that are in the posts directory 
 
   {
-    "id": "spencer-bmp",
-    "title": "Spencer BMP",
-    "shortDescription": "BMP Image Parser written in C! I use this in a lot of my other projects as.",
-    "date": "2024-05-01",
-    "image": "/window.svg",
-    "markdown": "spencer-bmp.md"
-  },
+    "id": "reverse-engineering-poly-tc8-part-4",
+    "title": "Reverse Engineering Poly TC8 Part 4",
+    "shortDescription": "Using our extracted and decompiled Device Tree Source to build a custom Linux image with Yocto.",
+    "date": "05-12-2025",
+    "image": "/assets/reverse-engineering-poly-tc8-part-3/dts-from-dtb.png",
+    "markdown": "reverse-engineering-poly-tc8-part-3.md"
+  }
