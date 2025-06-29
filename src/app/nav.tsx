@@ -5,7 +5,10 @@ import { useTheme } from "./context/ThemeContext";
 
 export default function Nav() {
   const pathname = usePathname();
+  // TODO: I could refactor to a isPage function and we can pass in an arg to check for.
+  // This could also fail on links with project/post later in the name which isn't ideal but fine for my purposes.
   const isProjectsPage = pathname?.includes("/projects");
+  const isPostsPage = pathname?.includes("/posts");
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -45,6 +48,7 @@ export default function Nav() {
             gap: "0.75rem",
           }}
         >
+          {/* Projects  Button*/}
           <button
             onClick={() => (window.location.href = "/projects")}
             style={{
@@ -70,6 +74,34 @@ export default function Nav() {
             }}
           >
             Projects
+          </button>
+
+          {/* Posts  Button*/}
+          <button
+            onClick={() => (window.location.href = "/posts")}
+            style={{
+              padding: "0.4rem 1rem",
+              backgroundColor: isPostsPage
+                ? "var(--button-hover)"
+                : "var(--button-bg)",
+              color: "var(--text)",
+              fontSize: "1rem",
+              fontWeight: 500,
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+              transition: "background-color 0.2s ease-in-out",
+            }}
+            onMouseOver={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.backgroundColor =
+                "var(--button-hover)";
+            }}
+            onMouseOut={(e) => {
+              (e.currentTarget as HTMLButtonElement).style.backgroundColor =
+                isPostsPage ? "var(--button-hover)" : "var(--button-bg)";
+            }}
+          >
+            Posts
           </button>
 
           <button

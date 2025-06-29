@@ -1,0 +1,89 @@
+"use client";
+
+import React from "react";
+import posts from "../posts-content/posts.json";
+import Link from "next/link";
+import Nav from "../nav";
+import ThemeAwareImage from "../components/ThemeAwareImage";
+
+export default function PostsPage() {
+  return (
+    <div style={{ minHeight: "100vh", width: "100%" }}>
+      <div className="content-container">
+        <Nav />
+        <h1
+          style={{ fontSize: "2rem", marginTop: "2rem", marginBottom: "2rem" }}
+        >
+          Posts
+        </h1>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+            gap: "2rem",
+          }}
+        >
+          {posts.map((post) => (
+            <Link
+              href={`/posts/${post.id}`}
+              key={post.id}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div
+                style={{
+                  backgroundColor: "var(--card-bg)",
+                  borderRadius: "12px",
+                  overflow: "hidden",
+                  boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                  transition: "transform 0.2s ease",
+                  cursor: "pointer",
+                  height: "100%",
+                }}
+              >
+                <div
+                  style={{
+                    position: "relative",
+                    width: "100%",
+                    height: "200px",
+                  }}
+                >
+                  <ThemeAwareImage
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={post.id === "post-1"}
+                    style={{ objectFit: "cover" }}
+                    quality={100}
+                  />
+                </div>
+                <div style={{ padding: "1.5rem" }}>
+                  <h2 style={{ margin: "0 0 0.5rem 0", fontSize: "1.5rem" }}>
+                    {post.title}
+                  </h2>
+                  <p style={{ margin: "0", color: "var(--text)" }}>
+                    {post.shortDescription}
+                  </p>
+                  <p
+                    style={{
+                      margin: "1rem 0 0 0",
+                      color: "var(--text)",
+                      opacity: 0.7,
+                      fontSize: "0.9rem",
+                    }}
+                  >
+                    {new Date(post.date).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import projects from "./projects.json";
+import projects from "../projects-content/projects.json";
 import Link from "next/link";
 import Nav from "../nav";
 import ThemeAwareImage from "../components/ThemeAwareImage";
@@ -18,8 +18,8 @@ export default function ProjectsPage() {
         </h1>
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+            display: "flex",
+            flexDirection: "column",
             gap: "2rem",
           }}
         >
@@ -31,42 +31,37 @@ export default function ProjectsPage() {
             >
               <div
                 style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "stretch",
                   backgroundColor: "var(--card-bg)",
                   borderRadius: "12px",
                   overflow: "hidden",
                   boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                   transition: "transform 0.2s ease",
                   cursor: "pointer",
-                  height: "100%",
+                  minHeight: "220px",
                 }}
               >
                 <div
                   style={{
-                    position: "relative",
-                    width: "100%",
-                    height: "200px",
+                    flex: 1,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "flex-start",
+                    // TODO: These values may need to be modified in the future depending on image sizes to make it more compatible with different images
+                    padding: "1.2rem 2.2rem 1.2rem 1.5rem", // more right padding to keep text away from image
                   }}
                 >
-                  <ThemeAwareImage
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    priority={project.id === "project-1"}
-                    style={{ objectFit: "cover" }}
-                    quality={100}
-                  />
-                </div>
-                <div style={{ padding: "1.5rem" }}>
-                  <h2 style={{ margin: "0 0 0.5rem 0", fontSize: "1.5rem" }}>
+                  <h2 style={{ margin: "0 0 0.4rem 0", fontSize: "1.5rem" }}>
                     {project.title}
                   </h2>
-                  <p style={{ margin: "0", color: "var(--text)" }}>
+                  <p style={{ margin: "0 0 0.8rem 0", color: "var(--text)" }}>
                     {project.shortDescription}
                   </p>
                   <p
                     style={{
-                      margin: "1rem 0 0 0",
+                      margin: "0",
                       color: "var(--text)",
                       opacity: 0.7,
                       fontSize: "0.9rem",
@@ -78,6 +73,52 @@ export default function ProjectsPage() {
                       day: "numeric",
                     })}
                   </p>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "1.2rem 1.5rem 1.2rem 0", 
+                    height: "100%",
+                  }}
+                >
+                  <div
+                    style={{
+                      border: "2px solid var(--border)",
+                      borderRadius: "10px",
+                      background: "var(--card-bg)",
+                      boxSizing: "border-box",
+                      overflow: "hidden",
+                      width: "260px", 
+                      minWidth: "220px",
+                      aspectRatio: "4 / 3",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      height: "200px", 
+                      maxHeight: "260px",
+                    }}
+                  >
+                    <ThemeAwareImage
+                      src={project.image}
+                      alt={project.title}
+                      fill={false}
+                      width={260}
+                      height={195}
+                      sizes="260px"
+                      priority={project.id === "project-1"}
+                      style={{
+                        objectFit: "cover",
+                        width: "100%",
+                        height: "100%",
+                        display: "block",
+                        borderRadius: "8px",
+                        background: "var(--image-bg, #222)",
+                      }}
+                      quality={100}
+                    />
+                  </div>
                 </div>
               </div>
             </Link>

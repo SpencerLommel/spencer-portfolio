@@ -14,7 +14,7 @@ import ThemeAwareImage from "./ThemeAwareImage";
 import LogViewer from "./LogViewer";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
-import rehypeNormalizeComponents from '../../lib/rehypeNormalizeComponents';
+import rehypeNormalizeComponents from "../../lib/rehypeNormalizeComponents";
 
 import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
 import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typescript";

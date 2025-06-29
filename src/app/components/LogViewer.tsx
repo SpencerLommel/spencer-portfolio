@@ -1,11 +1,14 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 interface LogViewerProps {
   content: string;
   maxHeight?: string;
 }
 
-const LogViewer: React.FC<LogViewerProps> = ({ content, maxHeight = '400px' }) => {
+const LogViewer: React.FC<LogViewerProps> = ({
+  content,
+  maxHeight = "400px",
+}) => {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = async () => {
@@ -14,7 +17,7 @@ const LogViewer: React.FC<LogViewerProps> = ({ content, maxHeight = '400px' }) =
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy text:', err);
+      console.error("Failed to copy text:", err);
     }
   };
 
@@ -25,15 +28,15 @@ const LogViewer: React.FC<LogViewerProps> = ({ content, maxHeight = '400px' }) =
           onClick={copyToClipboard}
           className="px-2 py-1 text-sm bg-gray-700 text-gray-200 rounded hover:bg-gray-600 transition-colors"
         >
-          {copied ? 'Copied!' : 'Copy'}
+          {copied ? "Copied!" : "Copy"}
         </button>
       </div>
-      <pre 
+      <pre
         className="p-4 overflow-x-auto whitespace-pre-wrap break-all text-sm text-gray-200"
-        style={{ 
+        style={{
           maxHeight,
-          overflowY: 'auto',
-          wordBreak: 'break-word'
+          overflowY: "auto",
+          wordBreak: "break-word",
         }}
       >
         <code>{content}</code>
