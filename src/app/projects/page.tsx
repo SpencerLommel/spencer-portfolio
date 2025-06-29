@@ -30,6 +30,7 @@ export default function ProjectsPage() {
               style={{ textDecoration: "none", color: "inherit" }}
             >
               <div
+                className="project-card"
                 style={{
                   display: "flex",
                   flexDirection: "row",
@@ -43,14 +44,15 @@ export default function ProjectsPage() {
                   minHeight: "220px",
                 }}
               >
+                {/* Image on the right for desktop, on top for mobile */}
                 <div
+                  className="project-card-content"
                   style={{
                     flex: 1,
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "flex-start",
-                    // TODO: These values may need to be modified in the future depending on image sizes to make it more compatible with different images
-                    padding: "1.2rem 2.2rem 1.2rem 1.5rem", // more right padding to keep text away from image
+                    padding: "1.2rem 2.2rem 1.2rem 1.5rem",
                   }}
                 >
                   <h2 style={{ margin: "0 0 0.4rem 0", fontSize: "1.5rem" }}>
@@ -75,11 +77,12 @@ export default function ProjectsPage() {
                   </p>
                 </div>
                 <div
+                  className="project-card-image-container"
                   style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    padding: "1.2rem 1.5rem 1.2rem 0", 
+                    padding: "1.2rem 1.5rem 1.2rem 0",
                     height: "100%",
                   }}
                 >
@@ -90,13 +93,13 @@ export default function ProjectsPage() {
                       background: "var(--card-bg)",
                       boxSizing: "border-box",
                       overflow: "hidden",
-                      width: "260px", 
+                      width: "260px",
                       minWidth: "220px",
                       aspectRatio: "4 / 3",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      height: "200px", 
+                      height: "200px",
                       maxHeight: "260px",
                     }}
                   >
@@ -125,6 +128,31 @@ export default function ProjectsPage() {
           ))}
         </div>
       </div>
+      <style>{`
+        @media (max-width: 700px) {
+          .project-card {
+            flex-direction: column !important;
+            min-height: unset !important;
+          }
+          .project-card-image-container {
+            order: -1;
+            padding: 0 !important;
+            justify-content: center !important;
+            width: 100% !important;
+          }
+          .project-card-image-container > div {
+            width: 100% !important;
+            min-width: unset !important;
+            height: auto !important;
+            aspect-ratio: 4 / 3 !important;
+            max-width: 400px;
+            margin: 0 auto;
+          }
+          .project-card-content {
+            padding: 0.8rem 1.2rem 1.2rem 1.2rem !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

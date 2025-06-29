@@ -1,5 +1,5 @@
 [
-      {
+  {
     "id": "reverse-engineering-poly-tc8",
     "title": "Reverse Engineering Poly TC8",
     "shortDescription": "In this project, I took a deep dive into embedded linux, Android debugging tools, hardware reverse engineering, producing custom Linux images for embedded hardware.",

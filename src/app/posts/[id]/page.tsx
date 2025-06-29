@@ -64,7 +64,11 @@ export default async function PostPage({
     );
   }
 
-  const mdPath = path.join(process.cwd(), "src/app/posts-content", post.markdown);
+  const mdPath = path.join(
+    process.cwd(),
+    "src/app/posts-content",
+    post.markdown,
+  );
   let content = "";
 
   try {

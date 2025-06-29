@@ -64,7 +64,11 @@ export default async function ProjectPage({
     );
   }
 
-  const mdPath = path.join(process.cwd(), "src/app/projects-content", project.markdown);
+  const mdPath = path.join(
+    process.cwd(),
+    "src/app/projects-content",
+    project.markdown,
+  );
   let content = "";
 
   try {
