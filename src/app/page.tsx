@@ -22,9 +22,7 @@ export default function Home() {
             I was working on a pretty cool embedded Linux project and I got a
             lot of questions online about it so I decided to make this page.
             Check out the project{" "}
-            <Link href="/posts/reverse-engineering-poly-tc8-part-1">
-              here!
-            </Link>
+            <Link href="/posts/reverse-engineering-poly-tc8-part-1">here!</Link>
           </p>
 
           <p>

@@ -21,12 +21,14 @@ import typescript from "react-syntax-highlighter/dist/cjs/languages/prism/typesc
 import javascript from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
 import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
 import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
+import c from "react-syntax-highlighter/dist/cjs/languages/prism/c";
 
 SyntaxHighlighter.registerLanguage("bash", bash);
 SyntaxHighlighter.registerLanguage("typescript", typescript);
 SyntaxHighlighter.registerLanguage("javascript", javascript);
 SyntaxHighlighter.registerLanguage("css", css);
 SyntaxHighlighter.registerLanguage("json", json);
+SyntaxHighlighter.registerLanguage("c", c);
 
 function LogContentLoader({ src }: { src: string }) {
   const [logContent, setLogContent] = useState<string>("");
@@ -53,31 +55,41 @@ export default function ThemeMarkdown({ content }: { content: string }) {
   const { theme } = useTheme();
 
   const components: Components & { [key: string]: any } = {
-    img: ({ src, alt }) => (
-      <div
-        style={{
-          position: "relative",
-          width: "100%",
-          margin: "2rem 0",
-          display: "flex",
-          justifyContent: "center",
-        }}
-      >
-        <ThemeAwareImage
-          src={typeof src === "string" ? src : ""}
-          alt={alt || ""}
-          width={1920}
-          height={1080}
-          quality={100}
-          priority
+    img: ({ src, alt, title }) => {
+      // Parse width/height from title, e.g. "width=50% height=200px"
+      const style: React.CSSProperties = {
+        maxWidth: "100%",
+        height: "auto",
+        borderRadius: "8px",
+      };
+      if (title) {
+        const widthMatch = title.match(/width=([^\s]+)/);
+        const heightMatch = title.match(/height=([^\s]+)/);
+        if (widthMatch) style.width = widthMatch[1];
+        if (heightMatch) style.height = heightMatch[1];
+      }
+      return (
+        <div
           style={{
-            maxWidth: "100%",
-            height: "auto",
-            borderRadius: "8px",
+            position: "relative",
+            width: "100%",
+            margin: "2rem 0",
+            display: "flex",
+            justifyContent: "center",
           }}
-        />
-      </div>
-    ),
+        >
+          <ThemeAwareImage
+            src={typeof src === "string" ? src : ""}
+            alt={alt || ""}
+            width={1920}
+            height={1080}
+            quality={100}
+            priority
+            style={style}
+          />
+        </div>
+      );
+    },
     code: ({
       inline,
       className,
