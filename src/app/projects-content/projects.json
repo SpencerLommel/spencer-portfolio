@@ -3,7 +3,7 @@
     "id": "reverse-engineering-poly-tc8",
     "title": "Reverse Engineering Poly TC8",
     "shortDescription": "In this project, I took a deep dive into embedded linux, Android debugging tools, hardware reverse engineering, producing custom Linux images for embedded hardware.",
-    "date": "03-01-2025",
+    "date": "03-2025 - 06-2025",
     "image": "/reverse-engineering-poly-tc8-part-2/poly-tc8-pcb-with-uart-probes.jpg",
     "markdown": "reverse-engineering-poly-tc8.md"
   }
