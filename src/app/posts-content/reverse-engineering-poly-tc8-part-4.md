@@ -1,4 +1,4 @@
-## Getting started 
+## Getting started
 
 We needed to setup our Yocto directory and download the necessary files to get started:
 
@@ -12,10 +12,8 @@ After downloading the necessary files to get started we can create our build dir
 `DISTRO=fsl-imx-wayland MACHINE=imx8mm-evk-lpddr4 source imx-setup-release.sh -b <build dir>`
 (TODO: check that MACHINE was right ^^)
 
-
 We aren't ready to make our final image but we will do a test run. Running this for the first time will take an extremely long time becase it needs to download all of the required source code for our image and compile it into binaries that can be used with our image.  
 `bitbake core-image-base`
-
 
 This `core-image-base` build command threw an error so after doing some research online I found that I also needed `efitools` so here's how we download that:
 `sudo apt install efitools`

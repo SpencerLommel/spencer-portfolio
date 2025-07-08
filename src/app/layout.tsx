@@ -1,6 +1,8 @@
 import Script from "next/script";
 import { ThemeProvider } from "./context/ThemeContext";
 import FloatingControls from "./components/FloatingControls";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 export default function RootLayout({
@@ -30,6 +32,8 @@ export default function RootLayout({
           {children}
           <FloatingControls />
         </ThemeProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
