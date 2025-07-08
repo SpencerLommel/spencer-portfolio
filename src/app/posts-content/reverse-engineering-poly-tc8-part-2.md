@@ -88,7 +88,7 @@ I then wait a few minutes just to be 100% sure I don't get kicked out and looks 
 
 # Now for firmware extraction
 
-If you to read about how I was able to extract the firmware off this device and then extract a linux device tree from the firmware go read [part 3](/projects/reverse-engineering-poly-tc8-part-3)!
+If you to read about how I was able to extract the firmware off this device and then extract a linux device tree from the firmware go read [part 3](/posts/reverse-engineering-poly-tc8-part-3)!
 
 I will also dive into probing for UART a bit to see what other information we can find about this board which we will need for building a new linux image that we can flash onto this device.
 
