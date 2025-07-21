@@ -15,7 +15,7 @@
     "image": "/projects/spencer-bmp/brick_texture.bmp",
     "markdown": "spencer-bmp.md"
   },
-    {
+  {
     "id": "linux-mint-password-generator",
     "title": "Password Generator Applet for Linux Mint",
     "shortDescription": "A simple and highly configurable password generator for Linux Mint that allows you to copy a secure password to you clipboard with a single click!",

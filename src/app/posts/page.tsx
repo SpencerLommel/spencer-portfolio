@@ -6,7 +6,51 @@ import Link from "next/link";
 import Nav from "../nav";
 import ThemeAwareImage from "../components/ThemeAwareImage";
 
+// TODO: I'm not sure if I'll ever implement user selectable sorting but if I do I tried to make this logic
+// simple enough to extend for this feature
+// --- Sorting settings ---
+const SORT_BY: "date" | null = "date"; // Options: "date" or null (no sort)
+const REVERSE_SORT: boolean = false; // Set to true to reverse the sort order
+// ------------------------
+
+function parseDate(dateStr: string): Date {
+  // Helper to parse a date string (supports "MM-DD-YYYY", "MM-YYYY", "YYYY-MM-DD", "YYYY-MM")
+  const myMatch = dateStr.match(/^(\d{2})-(\d{4})$/);
+  if (myMatch) {
+    const [_, month, year] = myMatch;
+    return new Date(Number(year), Number(month) - 1, 1);
+  }
+  const mdyMatch = dateStr.match(/^(\d{2})-(\d{2})-(\d{4})$/);
+  if (mdyMatch) {
+    const [_, month, day, year] = mdyMatch;
+    return new Date(Number(year), Number(month) - 1, Number(day));
+  }
+  // If range, use the first date
+  if (dateStr.includes(" - ")) {
+    return parseDate(dateStr.split(" - ")[0].trim());
+  }
+  return new Date(dateStr);
+}
+
+function getSortedPosts() {
+  // Only include posts where released is not false (true or undefined)
+  const sorted = posts.filter((post) => post.released !== false);
+  if (SORT_BY === "date") {
+    sorted.sort((a, b) => {
+      const dateA = parseDate(a.date);
+      const dateB = parseDate(b.date);
+      return dateA.getTime() - dateB.getTime();
+    });
+    if (REVERSE_SORT) {
+      sorted.reverse();
+    }
+  }
+  return sorted;
+}
+
 export default function PostsPage() {
+  const sortedPosts = getSortedPosts();
+
   return (
     <div style={{ minHeight: "100vh", width: "100%" }}>
       <div className="content-container">
@@ -23,7 +67,7 @@ export default function PostsPage() {
             gap: "2rem",
           }}
         >
-          {posts.map((post) => (
+          {sortedPosts.map((post) => (
             <Link
               href={`/posts/${post.id}`}
               key={post.id}

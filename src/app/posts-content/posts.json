@@ -22,5 +22,13 @@
     "date": "04-10-2025",
     "image": "/assets/reverse-engineering-poly-tc8-part-3/dts-from-dtb.png",
     "markdown": "reverse-engineering-poly-tc8-part-3.md"
+  },
+  {
+    "released": false,
+    "id": "converting-pdf-to-epub",
+    "title": "Converting PDF's to EPUB's",
+    "shortDescription": "Sometimes Calibre auto-conversion doesn't work well so here's my workflow for converting PDF's to EPUB's!",
+    "date": "06-20-2025",
+    "markdown": "workflow-for-pdf-to-epub.md"
   }
 ]

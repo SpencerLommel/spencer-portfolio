@@ -56,7 +56,6 @@ export default function ThemeMarkdown({ content }: { content: string }) {
 
   const components: Components & { [key: string]: any } = {
     img: ({ src, alt, title }) => {
-      // Parse width/height from title, e.g. "width=50% height=200px"
       const style: React.CSSProperties = {
         maxWidth: "100%",
         height: "auto",
@@ -69,7 +68,7 @@ export default function ThemeMarkdown({ content }: { content: string }) {
         if (heightMatch) style.height = heightMatch[1];
       }
       return (
-        <div
+        <span
           style={{
             position: "relative",
             width: "100%",
@@ -87,7 +86,7 @@ export default function ThemeMarkdown({ content }: { content: string }) {
             priority
             style={style}
           />
-        </div>
+        </span>
       );
     },
     code: ({

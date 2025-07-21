@@ -15,9 +15,12 @@ export async function generateMetadata({
   if (!post) return {};
 
   const siteUrl = "https://spencerlommel.com";
-  const imageUrl = post.image.startsWith("http")
-    ? post.image
-    : siteUrl + post.image;
+  let imageUrl = undefined;
+  if (typeof post.image === "string" && post.image) {
+    imageUrl = post.image.startsWith("http")
+      ? post.image
+      : siteUrl + post.image;
+  }
 
   return {
     title: post.title,
@@ -25,14 +28,16 @@ export async function generateMetadata({
     openGraph: {
       title: post.title,
       description: post.shortDescription,
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
+      images: imageUrl
+        ? [
+            {
+              url: imageUrl,
+              width: 1200,
+              height: 630,
+              alt: post.title,
+            },
+          ]
+        : [],
       type: "article",
       url: `${siteUrl}/posts/${post.id}`,
     },
@@ -40,7 +45,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: post.title,
       description: post.shortDescription,
-      images: [imageUrl],
+      images: imageUrl ? [imageUrl] : [],
     },
   };
 }
