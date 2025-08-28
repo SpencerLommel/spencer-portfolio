@@ -10,7 +10,7 @@ import ThemeAwareImage from "../components/ThemeAwareImage";
 // simple enough to extend for this feature
 // --- Sorting settings ---
 const SORT_BY: "date" | null = "date"; // Options: "date" or null (no sort)
-const REVERSE_SORT: boolean = false; // Set to true to reverse the sort order
+const REVERSE_SORT: boolean = true; // Set to true to reverse the sort order
 // ------------------------
 
 function parseDate(dateStr: string): Date {

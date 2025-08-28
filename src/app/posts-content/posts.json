@@ -30,5 +30,14 @@
     "shortDescription": "Sometimes Calibre auto-conversion doesn't work well so here's my workflow for converting PDF's to EPUB's!",
     "date": "06-20-2025",
     "markdown": "workflow-for-pdf-to-epub.md"
+  },
+  {
+    "released": false,
+    "id": "reverse-engineering-synaptics-fingerprint-sensor-part-1",
+    "title": "Reverse Engineering Synaptics Fingerprint Sensor Part 1",
+    "shortDescription": "Wireshark USB traffic capture and analysis, protocol reverse engineering.",
+    "date": "08-27-2025",
+    "image": "/assets/reverse-engineering-synaptics-fingerprint-sensor-part-1/wireshark.png",
+    "markdown": "reverse-engineering-synaptics-fingerprint-sensor-part-1.md"
   }
 ]
