@@ -1,5 +1,14 @@
 [
   {
+    "released": false,
+    "id": "designing-a-microcontroller-dev-board",
+    "title": "Designing a Microcontroller Development Board",
+    "shortDescription": "A custom PCB designed in KiCAD built around the RP2040",
+    "date": "10-2025 - 12-2025",
+    "image": "/assets/hardware-design-with-rp2050/pcb-schematic-rev1.png",
+    "markdown": "designining-a-microcontroller-dev-board.md"
+  },
+  {
     "id": "reverse-engineering-poly-tc8",
     "title": "Reverse Engineering Poly TC8",
     "shortDescription": "In this project, I took a deep dive into embedded linux, Android debugging tools, hardware reverse engineering, producing custom Linux images for embedded hardware.",

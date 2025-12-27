@@ -6,7 +6,43 @@ import Link from "next/link";
 import Nav from "../nav";
 import ThemeAwareImage from "../components/ThemeAwareImage";
 
+// --- Sorting settings (same behavior as posts page) ---
+const SORT_BY: "date" | null = "date";
+const REVERSE_SORT: boolean = true; // Set to true to reverse the sort order
+
+function parseDate(dateStr: string): Date {
+  const myMatch = dateStr.match(/^(\d{2})-(\d{4})$/);
+  if (myMatch) {
+    const [_, month, year] = myMatch;
+    return new Date(Number(year), Number(month) - 1, 1);
+  }
+  const mdyMatch = dateStr.match(/^(\d{2})-(\d{2})-(\d{4})$/);
+  if (mdyMatch) {
+    const [_, month, day, year] = mdyMatch;
+    return new Date(Number(year), Number(month) - 1, Number(day));
+  }
+  if (dateStr.includes(" - ")) {
+    return parseDate(dateStr.split(" - ")[0].trim());
+  }
+  return new Date(dateStr);
+}
+
+function getSortedProjects() {
+  const filtered = projects.filter((project) => project.released !== false);
+  if (SORT_BY === "date") {
+    filtered.sort((a, b) => {
+      const dateA = parseDate(a.date);
+      const dateB = parseDate(b.date);
+      return dateA.getTime() - dateB.getTime();
+    });
+    if (REVERSE_SORT) filtered.reverse();
+  }
+  return filtered;
+}
+
 export default function ProjectsPage() {
+  const sortedProjects = getSortedProjects();
+
   return (
     <div style={{ minHeight: "100vh", width: "100%" }}>
       <div className="content-container">
@@ -23,7 +59,7 @@ export default function ProjectsPage() {
             gap: "2rem",
           }}
         >
-          {projects.map((project) => (
+          {sortedProjects.map((project) => (
             <Link
               href={`/projects/${project.id}`}
               key={project.id}
