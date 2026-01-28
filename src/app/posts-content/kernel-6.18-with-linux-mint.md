@@ -102,3 +102,61 @@ The first thing we want to do is confirm that we have actually loaded into our n
 ➜  linux-stable git:(v6.18.7) ✗ 
 ```
 
+## Fixing USB issue
+
+The first major issue I noticed was USB devices like my mouse and keyboard were not working. Because this was a pretty major blocker I ended up restarting my computer and using GRUB I booted into my old `6.14` kernel. I figured this would be some sort of USB config issue so I started off with searching for config options related to USB and HID (Human Interface Device which is the protcol most keyboards and mice use) settings. To fix this we will need to use `make menuconfig` to search through our Kernel config options and modify them.
+
+I eventually found `USB HID transport layer` which was disabled. I enabled this as `<M>` which means that it will be loaded as a kernel module and `<*>` means it will it be actually built into the kernel which increases the kernel size but generally boots faster.
+
+![Kernel menuconfig "USB HID transport layer" option](/kernel-6.18-with-linux-mint/USB-HID-option-to-fix-peripheral-issues.png)
+
+
+After this we just need to save our `.config` with our new settings and then recompile.
+
+### Recompiling and reinstall
+ 
+When recompiling and running `update-initramfs` below you should not be in the same kernel version. So if you are compiling 6.18.7 like me you should not be in kernel 6.18.7 while doing so.
+
+Below you can replace the make command with something like `make -j8` to use 8 cores. I prefer `-j$(nproc)` which just uses all cores.
+
+```sh
+make -j$(nproc)
+sudo make modules_install
+sudo make install
+sudo update-initramfs -c -k 6.18.7
+```
+
+After this, you can reboot back into `6.18.7` with your `.config` changes and check if it works!
+
+## Fixing Docker issue
+
+All other `.config` changes will follow the same process as abvoe so instead of repeating it for each section I'll just expain what issue I noticed and what `make menuconfig` setting I adjusted to fix it.
+
+
+I noticed when trying to start any Docker container that binds to a virtual ethernet address I was having this error.
+```t
+➜  ~ sudo docker start 3dd27fe75437
+Error response from daemon: failed to set up container networking: failed to create endpoint dev-container-mariadb on network mariadb_default: failed to add the host (vethc31ad62) <=> sandbox (vethb273059) pair interfaces: operation not supported
+failed to start containers: 3dd27fe75437
+➜  ~ 
+```
+
+To fix this, I had to enable "Virtual ethernet pair device" in `menuconfig`. I once again enabled this as a Kernel module rather than including it with the Kernel. I typically do this when I'm still debugging so that the Kernel at least loads but once you have finalized all of your settings you can include it in the Kernel as well.
+
+
+![Kernel menuconfig "Virtual ethernet pair device" option](/kernel-6.18-with-linux-mint/config-veth-menu-option-to-fix-docker-issue.png)
+
+
+## TL;DR what Kernel .config settings do I need to change?
+
+
+```sh
+CONFIG_USB_HID=y
+CONFIG_VETH=y
+```
+
+Here is my entire `.config` as well!
+<Log src="/kernel-6.18-with-linux-mint/linux-mint-6.18.7.txt"></Log>
+
+
+I will continue to use Kernel 6.18.7 for the next few weeks and if I find any other issues that I can fix with `.config` changes I will update here 
