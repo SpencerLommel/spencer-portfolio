@@ -6,7 +6,7 @@
 
 The first step is to clone the kernel repository locally. After this we can checkout what kernel we would like to build and go from there!
 
-`git clone https://git.kernel.org`
+`git clone https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git`
 
 From here, we can look for the most recent kernel release and check it out.
 
@@ -63,7 +63,7 @@ Unless you have already setup setup distro signing infrastructure on your comput
 
 ```sh
 scripts/config --disable SYSTEM_TRUSTED_KEYS
-script/config --disable SYSTEM_REVOCATION_KEYS
+scripts/config --disable SYSTEM_REVOCATION_KEYS
 scripts/config --disable SYSTEM_REVOCATION_KEYS
 scripts/config --set-str CONFIG_SYSTEM_TRUSTED_KEYS ""
 scripts/config --set-str CONFIG_SYSTEM_REVOCATION_KEYS ""
@@ -76,7 +76,7 @@ The nproc command prints the number of processing units available, I'd recommend
 ```sh
 ➜  linux-stable git:(v6.18.7) ✗ nproc
 16
-➜  linux-stable git:(v6.18.7) ✗ fakeroot make -j8
+➜  linux-stable git:(v6.18.7) ✗ make -j$(nproc)
 ```
 
 ### Installing our newly compiled Kernel
@@ -104,9 +104,9 @@ The first thing we want to do is confirm that we have actually loaded into our n
 
 ## Fixing USB issue
 
-The first major issue I noticed was USB devices like my mouse and keyboard were not working. Because this was a pretty major blocker I ended up restarting my computer and using GRUB I booted into my old `6.14` kernel. I figured this would be some sort of USB config issue so I started off with searching for config options related to USB and HID (Human Interface Device which is the protcol most keyboards and mice use) settings. To fix this we will need to use `make menuconfig` to search through our Kernel config options and modify them.
+The first major issue I noticed was USB devices like my mouse and keyboard were not working. Because this was a pretty major blocker I ended up restarting my computer and using GRUB I booted into my old `6.14` kernel. I figured this would be some sort of USB config issue so I started off with searching for config options related to USB and HID (Human Interface Device which is the protocol most keyboards and mice use) settings. To fix this we will need to use `make menuconfig` to search through our Kernel config options and modify them.
 
-I eventually found `USB HID transport layer` which was disabled. I enabled this as `<M>` which means that it will be loaded as a kernel module and `<*>` means it will it be actually built into the kernel which increases the kernel size but generally boots faster.
+I eventually found `USB HID transport layer` which was disabled. I enabled this as `<M>` which means that it will be loaded as a kernel module and `<*>` means it will be built into the kernel which increases the kernel size but generally boots faster.
 
 ![Kernel menuconfig "USB HID transport layer" option](/kernel-6.18-with-linux-mint/USB-HID-option-to-fix-peripheral-issues.png)
 
@@ -130,7 +130,7 @@ After this, you can reboot back into `6.18.7` with your `.config` changes and ch
 
 ## Fixing Docker issue
 
-All other `.config` changes will follow the same process as abvoe so instead of repeating it for each section I'll just expain what issue I noticed and what `make menuconfig` setting I adjusted to fix it.
+All other `.config` changes will follow the same process as above so instead of repeating it for each section I'll just explain what issue I noticed and what `make menuconfig` setting I adjusted to fix it.
 
 
 I noticed when trying to start any Docker container that binds to a virtual ethernet address I was having this error.
@@ -151,8 +151,8 @@ To fix this, I had to enable "Virtual ethernet pair device" in `menuconfig`. I o
 
 
 ```sh
-CONFIG_USB_HID=y
-CONFIG_VETH=y
+CONFIG_USB_HID=m
+CONFIG_VETH=m
 ```
 
 Here is my entire `.config` as well!

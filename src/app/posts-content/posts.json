@@ -41,12 +41,12 @@
     "markdown": "reverse-engineering-synaptics-fingerprint-sensor-part-1.md"
   },
     {
-    "released": false,
+    "released": true,
     "id": "kernel-6.18-with-linux-mint",
     "title": "Running Kernel 6.18 with Linux Mint",
     "shortDescription": "Compiling the Linux kernel from source and ironing out any bugs we find with our config.",
     "date": "01-28-2026",
-    "image": "/assets/reverse-engineering-synaptics-fingerprint-sensor-part-1/wireshark.png",
+    "image": "/kernel-6.18-with-linux-mint/penguin-thumbnail-image.jpg",
     "markdown": "kernel-6.18-with-linux-mint.md"
   }
 ]
