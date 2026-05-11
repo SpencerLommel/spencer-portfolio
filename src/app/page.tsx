@@ -12,9 +12,9 @@ export default function Home() {
 
         <div style={{ marginTop: "2rem" }}>
           <h3>
-            Hello and welcome! My name is Spencer Lommel, I mostly program in C,
-            C++, Go, and sometimes Python when needed, so I don&apos;t really do
-            a lot of web development :P
+            Hello and welcome! My name is Spencer, I mostly program in C, C++,
+            Go, and Python, so I don&apos;t really do a lot of web development
+            :P
           </h3>
 
           <p>
@@ -25,8 +25,8 @@ export default function Home() {
           </p>
 
           <p>
-            I am a CS Major at NDSU, and a Systems Programmer Intern at Marvin
-            Windows. I really like hardware reverse engineering and working with
+            I am a CS Major at NDSU, and a firmware engineer intern at Seagate.
+            I really like hardware reverse engineering and working with
             microcontrollers! Check out my Github or Projects tab to see more of
             what I like to make! :-)
           </p>
